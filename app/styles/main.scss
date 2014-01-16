@@ -82,3 +82,19 @@ body {
         border-bottom: 0;
     }
 }
+
+img {
+    display: block;
+}
+
+.image--svg {
+    border: 10px solid red;
+}
+
+.image--webp {
+    border: 10px solid blue;
+}
+
+.image--normal {
+    border: 10px solid orange;
+}
