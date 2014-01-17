@@ -81,12 +81,3 @@ console.log(localStorage.number);
 
 
 console.dir(localStorage.sex);
-
-
-
-var modernizr;
-
-
-
-
-
