@@ -25,6 +25,38 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
 
+		webp: {
+			files: {
+				//expand: true,
+				//cwd: 'path/to/source/images',
+				src: '<%= yeoman.app %>/images/jpg/*.jpg',
+				dest: '<%= yeoman.app %>/images/webp/'
+			},
+			options: {
+				binpath: '~/Desktop/Downloads/libwebp-0.4.0-mac-10.8/bin/cwebp',
+				preset: 'photo',
+				verbose: true,
+				quality: 80,
+				alphaQuality: 80,
+				compressionMethod: 6,
+				segments: 4,
+				psnr: 42,
+				sns: 50,
+				filterStrength: 40,
+				filterSharpness: 3,
+				simpleFilter: true,
+				partitionLimit: 50,
+				analysisPass: 6,
+				multiThreading: true,
+				lowMemory: false,
+				alphaMethod: 0,
+				alphaFilter: 'best',
+				alphaCleanup: true,
+				noAlpha: false,
+				lossless: false
+			}
+		},
+
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
@@ -375,6 +407,9 @@ module.exports = function (grunt) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve']);
     });
+
+	// register task
+	grunt.registerTask('webp', 'webp');
 
     grunt.registerTask('test', function(target) {
         if (target !== 'watch') {
