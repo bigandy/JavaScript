@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Starter</title>
+	<script src="js/bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<h1>Lesson1 - Data Binding</h1>
+
+	<label for="name">Message</label>
+	<input type="text" ng-model="yourMessage" placeholder="enter your message here">
+
+	<label for="name">Name</label>
+	<input type="text" ng-model="yourName" placeholder="enter your name here">
+
+	<h1>{{yourMessage}} {{yourName}}</h1>
+
+
+	<hr />
+
+	<h1>Lesson2 - Controllers</h1>
+
+	<div ng-controller="Ctrl">
+		<h2>{{name}}</h2>
+	</div>
+
+	<div ng-controller="AnotherCtrl">
+
+		<label for="anotherControllerName"></label><input type="text" id="anotherControllerName" ng-model="name">
+		<h2>{{age}}</h2>
+	</div>
+
+
+<script src="js/angular.js"></script>
+</body>
+</html>
