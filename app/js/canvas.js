@@ -77,6 +77,11 @@ AH.Box = function(ctx, x, y, height, width) {
 
 AH.Box.prototype.render = function () {
     this.ctx.fillStyle = 'orange';
+
+    // this.ctx.fillStyle = '#'+Math.floor(
+    //     Math.random()*16777215
+    // ).toString();
+
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.height, this.width);
     this.ctx.closePath();
