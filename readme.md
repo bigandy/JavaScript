@@ -1,6 +1,12 @@
 # JavaScript Playground
 
-I've been a front-end developer for 3.5 years and over that time have acquired a decent amount of JavaScript (mainly jQuery) knowledge. I've done ajax, json, implemented and modified plugins, created infographics, animation with canvas and svg, and simple vanilla JavaScript. 
+To get better at something you have to practice and experiment with the tools of your desired trade. One of my goals for 2014 is to get better at JS and this is the place I'm using to show what I am doing with it.
 
-The 
+Here's what I am looking at:
 
+* Canvas
+* WebRTC
+* AngularJS
+* Vanilla JS
+* jQuery
+* WebP / SVG
