@@ -54,6 +54,7 @@ AH.play = function () {
 
 AH.render = function () {
     this.ctx.clearRect(0, 0, this.width, this.height);
+    this.drawGrid(this.ctx);
     for(var index in this.boxList) {
         this.boxList[index].animate();
     }
@@ -61,9 +62,9 @@ AH.render = function () {
 
 AH.drawGrid = function(ctx) {
 
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
+    // ctx.shadowBlur = 0;
+    // ctx.shadowOffsetX = 0;
+    // ctx.shadowOffsetY = 0;
 
     ctx.strokeStyle = 'black';
     ctx.lineWidth = '1';
@@ -132,11 +133,11 @@ AH.Box.prototype.move = function (newX, newY, newHeight, newWidth) {
 
 AH.Box.prototype.animate = function () {
     this.multiplier = 20;
-    if (this.height > 50) {
+    if (this.height > 0) {
 
         this.move(this.x, this.y+this.multiplier, this.height, this.width - this.multiplier );
         this.draw();
-        console.log(this.height);
+        // console.log(this.height);
     }
 };
 
