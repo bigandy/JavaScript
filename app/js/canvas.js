@@ -14,7 +14,13 @@ AH.init = function() {
 
     // Call other functions
     var list = [
-        0, 100, 200, 300, 400, 500, 600
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600
     ];
 
     var self = this;
@@ -24,9 +30,9 @@ AH.init = function() {
         var box = new AH.Box(self.ctx, list[i]+10, list[i]+10, 90, self.height - list[i] - 20);
         box.draw(); // output the box
         self.boxList.push(box); // put the dimensions of the boxes in an array for later use
+
     }
     this.animate();
-    // console.log(AH.boxList);
 };
 
 AH.animate = function () {
@@ -34,7 +40,6 @@ AH.animate = function () {
 
     this.render();
 
-    // console.log(direction);
     this.animId = requestAnimationFrame(function () {
         self.animate();
     });
@@ -55,17 +60,18 @@ AH.play = function () {
 AH.render = function () {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.drawGrid(this.ctx);
+
     for(var index in this.boxList) {
-        this.boxList[index].animate();
+
+        if (this.boxList[index].width >0) {
+            this.boxList[index].animate();
+            // console.log(this.boxList[0].width);
+        }
     }
+
 };
 
 AH.drawGrid = function(ctx) {
-
-    // ctx.shadowBlur = 0;
-    // ctx.shadowOffsetX = 0;
-    // ctx.shadowOffsetY = 0;
-
     ctx.strokeStyle = 'black';
     ctx.lineWidth = '1';
     ctx.lineJoin = 'round';
@@ -74,7 +80,6 @@ AH.drawGrid = function(ctx) {
     ctx.lineTo(10, this.height-10);
     ctx.lineTo(this.width-5, this.height-10);
     ctx.stroke();
-
 
     var topBottomMarker = this.height - 15,
         bottomBottomMarker = this.height - 5,
@@ -91,12 +96,7 @@ AH.drawGrid = function(ctx) {
         ctx.lineTo(15,markers[i]);
         ctx.stroke();
     }
-
-    ctx.save();
 };
-
-
-
 
 AH.Box = function(ctx, x, y, height, width) {
     this.ctx = ctx;
@@ -107,11 +107,6 @@ AH.Box = function(ctx, x, y, height, width) {
 };
 
 AH.Box.prototype.draw = function () {
-    // output random colour for each Box
-    // this.ctx.fillStyle = '#'+Math.floor(
-    //     Math.random()*16777215
-    // ).toString(16);
-
     this.ctx.fillStyle = 'orange';
 
     // start the path
@@ -124,21 +119,17 @@ AH.Box.prototype.draw = function () {
     this.ctx.fill();
 };
 
-AH.Box.prototype.move = function (newX, newY, newHeight, newWidth) {
-    this.x = newX;
+AH.Box.prototype.move = function (newY,newWidth) {
     this.y = newY;
-    this.height = newHeight;
     this.width = newWidth;
 };
 
 AH.Box.prototype.animate = function () {
-    this.multiplier = 20;
-    if (this.height > 0) {
+    this.multiplier = 10;
 
-        this.move(this.x, this.y+this.multiplier, this.height, this.width - this.multiplier );
-        this.draw();
-        // console.log(this.height);
-    }
+    this.move(this.y + this.multiplier, this.width - this.multiplier );
+
+    this.draw();
 };
 
 
