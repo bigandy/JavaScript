@@ -1,3 +1,5 @@
+/* global module, require */
+
 // Generated on 2014-01-12 using generator-webapp 0.4.6
 'use strict';
 
@@ -377,7 +379,7 @@ module.exports = function (grunt) {
     });
 
 	// register task
-    grunt.registerTask('test', function(target) {
+    grunt.registerTask('test', function (target) {
         if (target !== 'watch') {
             grunt.task.run([
                 'clean:server',

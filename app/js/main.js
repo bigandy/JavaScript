@@ -1,6 +1,12 @@
 'use strict';
+
+var buttons = document.getElementsByTagName('button'),
+	input = document.getElementById('inputBox');
+
 function debug(msg) {
-	var log = document.getElementById('debuglog');
+	var log = document.getElementById('debuglog'),
+		pre = document.createElement('pre'),
+		text = document.createTextNode(msg);
 
 	if (!log) {
 		log = document.createElement('div');
@@ -9,36 +15,15 @@ function debug(msg) {
 		document.body.appendChild(log);
 	}
 
-	var pre = document.createElement('pre'),
-		text = document.createTextNode(msg);
+
 	pre.appendChild(text);
 	log.appendChild(pre);
 }
 
-// function hide(e, reflow) {
-// 	if (reflow) {
-// 		e.style.display = 'none';
-// 	} else {
-// 		e.style.visibility = 'hidden';
-// 	}
-// }
-
-// function highlight(e) {
-// 	if (!e.className) {
-// 		e.className = 'highlight';
-// 	} else {
-// 		e.className += 'highlight';
-// 	}
-// }
-
 debug('funky chicken');
-// hide(this, true);
-// highlight()
 
+window.onload = function () {
 
-window.onload = function() {
-	var buttons = document.getElementsByTagName('button'),
-		input = document.getElementById('inputBox');
 
 	input.addEventListener('focus', function () {
 
@@ -56,7 +41,7 @@ window.onload = function() {
 		event.target.style.visibility = 'hidden';
 	}
 
-	for (var i = 0; i < buttons.length; i++) {
+	for (var i = buttons.length; i--;) {
 		var button = buttons[i];
 
 		if (button.addEventListener) {

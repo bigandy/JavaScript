@@ -2,7 +2,7 @@
 'use strict';
 window.AH = {};
 
-AH.init = function() {
+AH.init = function () {
 	this.canvas = document.getElementById('canvas');
 	this.ctx = canvas.getContext('2d');
 	this.width = canvas.width;
@@ -27,7 +27,7 @@ AH.init = function() {
     this.boxList = [];
 
     for (var i = list.length; i--;) {
-        var box = new AH.Box(self.ctx, list[i]+10, list[i]+10, 90, self.height - list[i] - 20);
+        var box = new AH.Box(self.ctx, list[i] + 10, list[i] + 10, 90, self.height - list[i] - 20);
         box.draw(); // output the box
         self.boxList.push(box); // put the dimensions of the boxes in an array for later use
 
@@ -61,9 +61,9 @@ AH.render = function () {
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.drawGrid(this.ctx);
 
-    for(var index in this.boxList) {
+    for (var index in this.boxList) {
 
-        if (this.boxList[index].width >0) {
+        if (this.boxList[index].width > 0) {
             this.boxList[index].animate();
             // console.log(this.boxList[0].width);
         }
@@ -71,14 +71,14 @@ AH.render = function () {
 
 };
 
-AH.drawGrid = function(ctx) {
+AH.drawGrid = function (ctx) {
     ctx.strokeStyle = 'black';
     ctx.lineWidth = '1';
     ctx.lineJoin = 'round';
     ctx.beginPath();
     ctx.moveTo(10, 10);
-    ctx.lineTo(10, this.height-10);
-    ctx.lineTo(this.width-5, this.height-10);
+    ctx.lineTo(10, this.height - 10);
+    ctx.lineTo(this.width - 5, this.height - 10);
     ctx.stroke();
 
     var topBottomMarker = this.height - 15,
@@ -88,17 +88,17 @@ AH.drawGrid = function(ctx) {
         ];
 
     for (var i = markers.length; i--;) {
-        ctx.moveTo(markers[i],topBottomMarker);
-        ctx.lineTo(markers[i],bottomBottomMarker);
+        ctx.moveTo(markers[i], topBottomMarker);
+        ctx.lineTo(markers[i], bottomBottomMarker);
         ctx.stroke();
 
-        ctx.moveTo(5,markers[i]);
-        ctx.lineTo(15,markers[i]);
+        ctx.moveTo(5, markers[i]);
+        ctx.lineTo(15, markers[i]);
         ctx.stroke();
     }
 };
 
-AH.Box = function(ctx, x, y, height, width) {
+AH.Box = function (ctx, x, y, height, width) {
     this.ctx = ctx;
     this.x = x;
     this.y = y;
@@ -119,7 +119,7 @@ AH.Box.prototype.draw = function () {
     this.ctx.fill();
 };
 
-AH.Box.prototype.move = function (newY,newWidth) {
+AH.Box.prototype.move = function (newY, newWidth) {
     this.y = newY;
     this.width = newWidth;
 };
@@ -127,7 +127,7 @@ AH.Box.prototype.move = function (newY,newWidth) {
 AH.Box.prototype.animate = function () {
     this.multiplier = 10;
 
-    this.move(this.y + this.multiplier, this.width - this.multiplier );
+    this.move(this.y + this.multiplier, this.width - this.multiplier);
 
     this.draw();
 };

@@ -2,12 +2,12 @@
 (function ($, window, undefined) {
     'use strict';
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 
         var images = $('img');
 
-        images.each(function(i) {
+        images.each(function (i) {
             // console.log(images[i]);
 
             // Use a regular expression to trim everything before final dot
@@ -30,11 +30,11 @@
         });
 
 
-        function imgSwapper(test,fallback,imgContainerClass) {
+        function imgSwapper(test, fallback, imgContainerClass) {
 
             var imgCC = (typeof imgContainerClass !== 'undefined') ? imgContainerClass : 'image-replacement',
-                imagesContainer = $('p.'+ imgCC),
-                image = $(document.createElement( 'img' ));
+                imagesContainer = $('p.' + imgCC),
+                image = $(document.createElement('img'));
 
 
 
@@ -43,18 +43,18 @@
                 // check to see if test is supported by browser
                 if (Modernizr[test]) {
                     // if does, show supported image
-                    image.attr('src',imagesContainer.data(test));
-                    imagesContainer.append( image );
+                    image.attr('src', imagesContainer.data(test));
+                    imagesContainer.append(image);
                 } else {
                     // otherwise display fallback image
-                    image.attr('src',imagesContainer.data(fallback));
-                    imagesContainer.append( image );
+                    image.attr('src', imagesContainer.data(fallback));
+                    imagesContainer.append(image);
                 }
             }
         }
 
 
-        (function(){
+        (function () {
 
             var supportCheckList = [
                     'svg',
@@ -67,29 +67,18 @@
             for (var i = supportCheckListLength; i--;) {
 
                 var list = supportCheckList;
-                if ( Modernizr[list[i]] ) {
+                if (Modernizr[list[i]]) {
                     console.log('Browser support for ' + list[i]);
                 } else {
                     console.log('No browser support for ' + list[i]);
                 }
             }
 
+            imgSwapper('svg', 'png');
 
-
-
-
-
-            imgSwapper('svg','png');
-
-            imgSwapper('webp','jpg', 'swap-webp' );
-
-
-
-
+            imgSwapper('webp', 'jpg', 'swap-webp');
 
         })();
-
-
 
     });
 
@@ -97,11 +86,3 @@
 
 
 })(jQuery, this);
-
-// Modernizr.load([{
-//     if ( Modernizr.svg ) {
-//         console.log('browser support for SVG');
-//     } else {
-//         console.log('no browser support for SVG');
-//     }
-// });

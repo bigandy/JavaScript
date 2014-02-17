@@ -16,7 +16,7 @@ function successCallback(stream) {
     video.play();
 }
 
-function errorCallback(error){
+function errorCallback(error) {
     console.log('navigator.getUserMedia error: ', error);
 }
 
