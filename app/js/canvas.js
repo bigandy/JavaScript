@@ -8,29 +8,22 @@ AH.init = function () {
 	this.width = canvas.width;
 	this.height = canvas.height;
     this.animId = null;
+    this.loop = 7;
 
     this.drawGrid(this.ctx);
 
 
     // Call other functions
-    var list = [
-        0,
-        100,
-        200,
-        300,
-        400,
-        500,
-        600
-    ];
+    var loop = this.loop,
+        i = loop,
+        self = this;
 
-    var self = this;
     this.boxList = [];
 
-    for (var i = list.length; i--;) {
-        var box = new AH.Box(self.ctx, list[i] + 10, list[i] + 10, 90, self.height - list[i] - 20);
+    while (i--) {
+        var box = new AH.Box(self.ctx, i * 100 + 10, i * 100 + 10, 90, self.height - i * 100 - 20);
         box.draw(); // output the box
         self.boxList.push(box); // put the dimensions of the boxes in an array for later use
-
     }
     this.animate();
 };
@@ -65,7 +58,6 @@ AH.render = function () {
 
         if (this.boxList[index].width > 0) {
             this.boxList[index].animate();
-            // console.log(this.boxList[0].width);
         }
     }
 
@@ -83,17 +75,15 @@ AH.drawGrid = function (ctx) {
 
     var topBottomMarker = this.height - 15,
         bottomBottomMarker = this.height - 5,
-        markers = [
-            100, 200, 300, 400, 500, 600
-        ];
+        markers = this.loop - 1;
 
-    for (var i = markers.length; i--;) {
-        ctx.moveTo(markers[i], topBottomMarker);
-        ctx.lineTo(markers[i], bottomBottomMarker);
+    for (var i = 1; i < markers + 1; i++) {
+        ctx.moveTo(i * 100, topBottomMarker);
+        ctx.lineTo(i * 100, bottomBottomMarker);
         ctx.stroke();
 
-        ctx.moveTo(5, markers[i]);
-        ctx.lineTo(15, markers[i]);
+        ctx.moveTo(5, i * 100);
+        ctx.lineTo(15, i * 100);
         ctx.stroke();
     }
 };
