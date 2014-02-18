@@ -3,21 +3,19 @@
 window.AH = {};
 
 AH.init = function () {
-	this.canvas = document.getElementById('canvas');
+
+    // Set up the variables
+    var loop = this.loop,
+        i = loop,
+        self = this;
+
+    this.canvas = document.getElementById('canvas');
 	this.ctx = canvas.getContext('2d');
 	this.width = canvas.width;
 	this.height = canvas.height;
     this.animId = null;
     this.loop = 7;
-
     this.drawGrid(this.ctx);
-
-
-    // Call other functions
-    var loop = this.loop,
-        i = loop,
-        self = this;
-
     this.boxList = [];
 
     while (i--) {
