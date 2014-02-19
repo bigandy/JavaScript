@@ -4,22 +4,32 @@ window.AH = {};
 
 AH.init = function () {
 
-    // Set up the variables
-    var loop = this.loop,
-        i = loop,
-        self = this;
+
 
     this.canvas = document.getElementById('canvas');
 	this.ctx = canvas.getContext('2d');
 	this.width = canvas.width;
 	this.height = canvas.height;
     this.animId = null;
-    this.loop = 7;
+    this.loop = 4;
     this.drawGrid(this.ctx);
     this.boxList = [];
 
+    // Set up the variables
+    var loop = this.loop,
+        i = loop,
+        self = this;
+
+
+    // this is the bars, number of which depend on this.loop
     while (i--) {
-        var box = new AH.Box(self.ctx, i * 100 + 10, i * 100 + 10, 90, self.height - i * 100 - 20);
+        var box = new AH.Box(
+            this.ctx,
+            i * this.width / this.loop, // x
+            i * this.height / this.loop, // y
+            this.width / this.loop,  // width
+            this.height - i * this.height / this.loop // height
+        );
         box.draw(); // output the box
         self.boxList.push(box); // put the dimensions of the boxes in an array for later use
     }
@@ -49,7 +59,7 @@ AH.play = function () {
 };
 
 AH.render = function () {
-    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.ctx.clearRect(0, 0, this.width, this.height); // need to clear the space, before re-drawing
     this.drawGrid(this.ctx);
 
     for (var index in this.boxList) {
@@ -76,12 +86,12 @@ AH.drawGrid = function (ctx) {
         markers = this.loop - 1;
 
     for (var i = 1; i < markers + 1; i++) {
-        ctx.moveTo(i * 100, topBottomMarker);
-        ctx.lineTo(i * 100, bottomBottomMarker);
+        ctx.moveTo(i * this.width / this.loop + 10, topBottomMarker);
+        ctx.lineTo(i * this.width / this.loop + 10, bottomBottomMarker);
         ctx.stroke();
 
-        ctx.moveTo(5, i * 100);
-        ctx.lineTo(15, i * 100);
+        ctx.moveTo(5, i * this.height / this.loop);
+        ctx.lineTo(15, i * this.height / this.loop);
         ctx.stroke();
     }
 };
@@ -113,7 +123,7 @@ AH.Box.prototype.move = function (newY, newWidth) {
 };
 
 AH.Box.prototype.animate = function () {
-    this.multiplier = 10;
+    this.multiplier = 5;
 
     this.move(this.y + this.multiplier, this.width - this.multiplier);
 
