@@ -1,0 +1,46 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>File-type-checker</title>
+        <meta name="viewport" content="width=device-width">
+        <script src="js/vendor/modernizr.custom.js"></script>
+        <link rel="stylesheet" href="build/css/style.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <img src="images/kiwi.svg" alt="This is an SVG Kiwi" />
+            <img src="images/1.sm.webp" alt="This is a webp image" />
+            <img src="images/5.sm.webp" alt="This is a webp image" />
+
+
+            <p data-svg="images/kiwi.svg" data-png="images/kiwi.png" data-alt="An Image of a Kiwi" class="image-replacement"></p>
+
+
+            <p data-webp="images/500.webp" data-jpg="images/500.jpeg" data-alt="An Image of a Kiwi" class="swap-webp"></p>
+
+            <h2>Here's the WordPress generated Markup</h2>
+            <pre>
+            <code>
+&lt;img src="http://big-andy.co.uk/content/uploads/kiwi.webp" alt="An Image of a Kiwi" class="alignnone size-full wp-image-2418" /&gt;
+            </code>
+            </pre>
+            <h2>I want to turn it into</h2>
+            <pre>
+                <code>
+&lt;p data-webp="http://big-andy.co.uk/content/uploads/kiwi.webp" data-jpg="http://big-andy.co.uk/content/uploads/kiwi.jpeg" data-alt="An Image of a Kiwi" class="swap-webp"&gt;&lt;/p&gt;
+                </code>
+            </pre>
+
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="js/file-type-checker.js"></script>
+</body>
+</html>
