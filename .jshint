@@ -67,5 +67,8 @@
     "white"         : true,    // true: Check against strict whitespace and indentation rules
 
     // Custom Globals
-    "globals"       : { "jQuery": true, "console": true }        // additional predefined global variables
+    "globals"       : {
+        "jQuery": true,
+        "console": true
+    }
 }
