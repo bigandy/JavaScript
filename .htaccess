@@ -645,3 +645,7 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+# Correct Mime type for SVG images, stops this error:
+# Resource interpreted as Image but transferred with MIME type text/plain
+AddType image/svg+xml svg

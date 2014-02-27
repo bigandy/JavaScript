@@ -39,6 +39,7 @@ gulp.task('sass', function () {
 			errLogToConsole: true,
 			outputStyle: 'compressed',
 			sourceComments: 'map'
+			// sourceComments: 'normal'
 		}))
         // .pipe(autoprefix('last 5 versions'))
         // .pipe(minifyCSS())

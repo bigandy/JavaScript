@@ -3,6 +3,6 @@ dist
 .tmp
 .sass-cache
 app/js/bower_components
-test/bower_components
+bower_components
 dist
 *.sublime-*
