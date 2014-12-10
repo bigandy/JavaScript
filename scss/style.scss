@@ -1,15 +1,5 @@
-/*!
- * Theme Name: access-fertility
- * Theme URI: http://www.electricstudio.co.uk
- * Description: Theme to base all other themes from
- * Author: Andrew Hudson
- * Version: 0.1
- * License: GPL
- */
-
 @import "../bower_components/normalize-scss/normalize";
 // @import "../bower_components/foundation/scss/foundation";
-@import "main";
 
 * {
 	-webkit-box-sizing: border-box;
@@ -33,3 +23,5 @@ h1 {
 	background: orange;
 }
 
+@import "main";
+@import "table";
