@@ -9,6 +9,10 @@
 			padding: 1em;
 		}
 
+		.tr--active td {
+			border-color: red;
+		}
+
 		.td--active {
 			font-weight: bold;
 
