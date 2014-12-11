@@ -1,3 +1,4 @@
+/* global localStorage, window, document */
 'use strict';
 
 var buttons = document.getElementsByTagName('button'),

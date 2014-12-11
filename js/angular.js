@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 var Ctrl = function ($scope) {
@@ -9,7 +8,7 @@ var Ctrl = function ($scope) {
 var AnotherCtrl = function ($scope) {
     $scope.name = 'Andrew Hudson';
     $scope.age = '33';
-    $scope.$watch('name', function(){
+    $scope.$watch('name', function () {
         console.log($scope.name);
     });
 };

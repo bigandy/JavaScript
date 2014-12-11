@@ -1,4 +1,4 @@
-/* global canvas, AH, requestAnimationFrame, cancelAnimationFrame */
+/* global canvas, AH, requestAnimationFrame, cancelAnimationFrame, window, document */
 'use strict';
 window.AH = {};
 

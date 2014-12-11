@@ -13,9 +13,9 @@ Person.prototype.work = function () {
 
 
 var Andrew = new Person({
-    name: "Andrew",
-    lastName: "Hudson",
-    age: "33"
+    name: 'Andrew',
+    lastName: 'Hudson',
+    age: '33'
 });
 
 console.log(Andrew.work(), Andrew.age, Andrew.lastName);

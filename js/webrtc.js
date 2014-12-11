@@ -1,5 +1,6 @@
+/* global navigator, window, document */
+
 'use strict';
-// window.AH = {};
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 

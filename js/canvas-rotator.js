@@ -1,3 +1,5 @@
+/* global document, window, setInterval */
+
 'use strict';
 
 function getCanvas(width, height) {

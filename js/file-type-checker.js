@@ -1,4 +1,4 @@
-/*global Modernizr */
+/*global Modernizr, document */
 (function ($, window, undefined) {
     'use strict';
 

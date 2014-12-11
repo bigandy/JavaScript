@@ -25,8 +25,8 @@ gulp.task('js', function () {
 
 gulp.task('lint', function() {
   gulp.src([
-			'js/plugins.js',
-			'js/main.js',
+			'js/*.js',
+			'!js/angular.js'
 		])
 		.pipe(jshint('.jshint'))
 		.pipe(jshint.reporter(stylish));
