@@ -21,15 +21,14 @@ AH.cellClick = function () {
 
 		// if you click on the element with parent that doesn't have class tr--active,
 		// remove text from all .sub-output elements
-		if (true === AH.checkRow(parent)) {
-			console.log('false');
-			$('.sub-output').text('');
-
-
-		} else {
+		if (false === AH.checkRow(parent)) {
+			// console.log('false');
+			// $('.sub-output').text('');
 			// highlight the row
 			AH.highlightRow(parent);
 		}
+
+
 		// add class to the clicked td
 		$this.addClass('td--active');
 		// remove class from other of same class
@@ -64,35 +63,63 @@ AH.cellClick = function () {
 			years = 1;
 		}
 
-		console.log(level);
+
+		// TODO: must be a better way of writing this!
 
 		if (1 !== level) {
 			outputText = '<span>Select a Standard and number of Years</span>';
+
+			if (1 !== standard && 1 !== years) {
+				console.log('all have been selected!');
+			} else if (1 !== standard) {
+				console.log('level + standard');
+			} else if (1 !== years) {
+				console.log('level + years');
+			} else {
+				console.log('level only');
+			}
+
 		} else {
-			outputText = '<span class="negative">Level Has value</span>';
+			outputText = '<span class="negative">Level has no value</span>';
+			$('div.level').text('');
 		}
 
 		if (1 !== standard) {
 			outputText += '<span>Select a Level and number of Years</span>';
 		} else {
-			outputText += '<span class="negative">Standard Has value</span>';
+			outputText += '<span class="negative">Standard has no value</span>';
+			$('div.standard').text('');
 		}
 
 		if (1 !== years) {
 			outputText += '<span>Select a Level and Standard</span>';
 		} else {
-			outputText += '<span class="negative">Years Has value</span>';
+			outputText += '<span class="negative">Years has no value</span>';
+			$('div.years').text('');
 		}
 
-		console.log(outputText);
+		// console.log(outputText);
 
 		// asign the calculation to the text of .output
 		$('.output').text(level * standard * years);
-		// $('.output-text').html(outputText);
+		$('.output-text').html(outputText);
 
+
+		// Scenarios: level = a, standard = b, years = c;
+
+		// 1. a,b,c
+		// 2. a,c,b
+
+		// 3. b,a,c
+		// 4. b,c,a
+
+		// 5. c,b,a
+		// 6. c,a,b
 
 	});
 };
+
+
 
 AH.highlightRow = function (el) {
 	// remove class from sibling rows

@@ -36,6 +36,7 @@
 	h1 {
 		background: transparent;
 		color: #000;
+		clear: both;
 	}
 
 	.sub-output {
@@ -52,12 +53,8 @@
 
 		&:last-of-type {
 			margin-right: 0;
-			border-color: #f00;
+			// border-color: #f00;
 		}
-	}
-
-	h1 {
-		clear: both;
 	}
 
 	span {
