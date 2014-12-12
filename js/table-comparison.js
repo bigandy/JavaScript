@@ -63,59 +63,43 @@ AH.cellClick = function () {
 			years = 1;
 		}
 
-
+		// the text depending on what has been clicked on and when
 		// TODO: must be a better way of writing this!
-
 		if (1 !== level) {
-			outputText = '<span>Select a Standard and number of Years</span>';
-
 			if (1 !== standard && 1 !== years) {
-				console.log('all have been selected!');
+				outputText = 'all have been selected!';
 			} else if (1 !== standard) {
-				console.log('level + standard');
+				outputText = 'level + standard';
 			} else if (1 !== years) {
-				console.log('level + years');
+				outputText = 'level + years';
 			} else {
-				console.log('level only');
+				outputText = 'level only';
 			}
-
-		} else {
-			outputText = '<span class="negative">Level has no value</span>';
-			$('div.level').text('');
+		} else if (1 !== standard) {
+			if (1 !== level && 1 !== years) {
+				outputText = 'all have been selected!';
+			} else if (1 !== level) {
+				outputText = 'standard + level';
+			} else if (1 !== years) {
+				outputText = 'standard + years';
+			} else {
+				outputText = 'standard only';
+			}
+		} else if (1 !== years) {
+			if (1 !== standard && 1 !== level) {
+				outputText = 'all have been selected!';
+			} else if (1 !== standard) {
+				outputText = 'standard + years';
+			} else if (1 !== level) {
+				outputText = 'level + years';
+			} else {
+				outputText = 'years only';
+			}
 		}
-
-		if (1 !== standard) {
-			outputText += '<span>Select a Level and number of Years</span>';
-		} else {
-			outputText += '<span class="negative">Standard has no value</span>';
-			$('div.standard').text('');
-		}
-
-		if (1 !== years) {
-			outputText += '<span>Select a Level and Standard</span>';
-		} else {
-			outputText += '<span class="negative">Years has no value</span>';
-			$('div.years').text('');
-		}
-
-		// console.log(outputText);
 
 		// asign the calculation to the text of .output
 		$('.output').text(level * standard * years);
 		$('.output-text').html(outputText);
-
-
-		// Scenarios: level = a, standard = b, years = c;
-
-		// 1. a,b,c
-		// 2. a,c,b
-
-		// 3. b,a,c
-		// 4. b,c,a
-
-		// 5. c,b,a
-		// 6. c,a,b
-
 	});
 };
 
@@ -143,8 +127,3 @@ AH.checkRow = function (el) {
 };
 
 AH.init();
-
-
-
-
-
