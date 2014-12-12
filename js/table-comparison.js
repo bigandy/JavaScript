@@ -3,13 +3,12 @@
 window.AH = {};
 
 AH.init = function () {
+	this.table = $('#table');
 	AH.cellClick();
 };
 
 AH.cellClick = function () {
-	var table = $('#table');
-
-	table.on('click', 'td', function () {
+	this.table.on('click', 'td', function () {
 		var $this = $(this),
 			tdClass = $this.attr('class'),
 			parent = $this.parent('tr'),
@@ -19,12 +18,8 @@ AH.cellClick = function () {
 			yearsTrue,
 			outputText = '';
 
-		// if you click on the element with parent that doesn't have class tr--active,
-		// remove text from all .sub-output elements
+		// if you click on the element with parent that doesn't have class tr--active, highlight that row
 		if (false === AH.checkRow(parent)) {
-			// console.log('false');
-			// $('.sub-output').text('');
-			// highlight the row
 			AH.highlightRow(parent);
 		}
 
