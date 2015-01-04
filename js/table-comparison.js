@@ -5,6 +5,18 @@ window.AH = {};
 AH.init = function () {
 	this.table = $('#table');
 	AH.cellClick();
+
+	this.outputRow = $('<tr />', {
+		class: 'outputRow'
+	});
+
+	this.output = $('<td colspan="12" />', {
+		class: 'output'
+	})
+
+	this.outputRow.append(this.output);
+
+	// this.table.append(this.outputRow);
 };
 
 AH.cellClick = function () {
@@ -12,11 +24,18 @@ AH.cellClick = function () {
 		var $this = $(this),
 			tdClass = $this.attr('class'),
 			parent = $this.parent('tr'),
+			cost,
 			years,
-			standard,
+			users,
 			level,
+			usersReduction = 1,
+			yearsReduction = 1,
 			yearsTrue,
-			outputText = '';
+			outputText = '',
+			beforeText = 'Please select ',
+			afterText = ' Required',
+			quote = '';
+
 
 		// if you click on the element with parent that doesn't have class tr--active, highlight that row
 		if (false === AH.checkRow(parent)) {
@@ -46,10 +65,10 @@ AH.cellClick = function () {
 			level = 1;
 		}
 
-		if ('undefined' !== typeof(parent.data('standard'))) {
-			standard = parent.data('standard');
+		if ('undefined' !== typeof(parent.data('users'))) {
+			users = parent.data('users');
 		} else {
-			standard = 1;
+			users = 1;
 		}
 
 		if ('undefined' !== typeof(parent.data('years'))) {
@@ -60,41 +79,54 @@ AH.cellClick = function () {
 
 		// the text depending on what has been clicked on and when
 		// TODO: must be a better way of writing this!
+
+
 		if (1 !== level) {
-			if (1 !== standard && 1 !== years) {
-				outputText = 'all have been selected!';
-			} else if (1 !== standard) {
-				outputText = 'level + standard';
+			if (1 !== users && 1 !== years) {
+				beforeText = '',
+				afterText = '';
+
+				outputText = 'All have been selected!';
+			} else if (1 !== users) {
+				outputText = 'Number of Years';
 			} else if (1 !== years) {
-				outputText = 'level + years';
+				outputText = 'users';
 			} else {
-				outputText = 'level only';
+				outputText = 'Number of Years and Users';
 			}
-		} else if (1 !== standard) {
+		} else if (1 !== users) {
 			if (1 !== level && 1 !== years) {
-				outputText = 'all have been selected!';
+				beforeText = '',
+				afterText = '';
+
+				outputText = 'All have been selected!';
 			} else if (1 !== level) {
-				outputText = 'standard + level';
+				outputText = 'Number of Years';
 			} else if (1 !== years) {
-				outputText = 'standard + years';
+				outputText = 'Level';
 			} else {
-				outputText = 'standard only';
+				outputText = 'Number of Years and Level';
 			}
 		} else if (1 !== years) {
-			if (1 !== standard && 1 !== level) {
-				outputText = 'all have been selected!';
-			} else if (1 !== standard) {
-				outputText = 'standard + years';
+			if (1 !== users && 1 !== level) {
+				beforeText = '',
+				afterText = '';
+
+				outputText = 'All have been selected!';
+			} else if (1 !== users) {
+				outputText = 'users + years';
 			} else if (1 !== level) {
 				outputText = 'level + years';
 			} else {
-				outputText = 'years only';
+				outputText = 'Level and Users';
 			}
 		}
 
+		cost = (level * (users * usersReduction) * (years * yearsReduction));
+
 		// asign the calculation to the text of .output
-		$('.output').text(level * standard * years);
-		$('.output-text').html(outputText);
+		AH.output.text(level * users * years);
+		$('.output-text').html(beforeText + outputText + afterText);
 	});
 };
 
@@ -110,7 +142,7 @@ AH.highlightRow = function (el) {
 		.find('td').removeClass('td--active');
 
 	// add class to current row
-	el.addClass('tr--active');
+	el.addClass('tr--active').after(AH.outputRow);
 };
 
 AH.checkRow = function (el) {

@@ -1,6 +1,11 @@
 .table-comparison {
 	margin-top: 2.5%;
 
+	td,
+	th {
+		cursor: pointer;
+	}
+
 	table {
 		width: 80%;
 		margin: auto;
@@ -15,6 +20,20 @@
 			border-color: #f00;
 		}
 
+		td {
+			&.level {
+				background: rgba(#00f, .25);
+
+			}
+			&.users {
+				background: rgba(#0f0, .25);
+
+			}
+			&.years {
+				background: rgba(#ff8000, .25);
+			}
+		}
+
 		.td--active {
 			font-weight: bold;
 			color: #fff;
@@ -23,7 +42,7 @@
 				background: #00f;
 
 			}
-			&.standard {
+			&.users {
 				background: #0f0;
 
 			}
@@ -31,6 +50,13 @@
 				background: #ff8000;
 			}
 		}
+	}
+
+	.outputRow {
+		td {
+			background: red;
+		}
+
 	}
 
 	h1 {
