@@ -20,28 +20,28 @@ AH.init = function () {
 };
 
 AH.cellClick = function () {
-	this.table.on('click', 'td', function () {
+	this.table.on('click', '.row td', function () {
 		var $this = $(this),
 			tdClass = $this.attr('class'),
 			parent = $this.parent('tr'),
-			cost,
+			$data = $this.data(),
+			cost = 1,
 			years,
 			users,
 			level,
 			usersReduction = 1,
 			yearsReduction = 1,
-			yearsTrue,
+			yearsTrue = false,
 			outputText = '',
 			beforeText = 'Please select ',
 			afterText = ' Required',
-			quote = '';
-
+			quote = '',
+			allSelected = false;
 
 		// if you click on the element with parent that doesn't have class tr--active, highlight that row
 		if (false === AH.checkRow(parent)) {
 			AH.highlightRow(parent);
 		}
-
 
 		// add class to the clicked td
 		$this.addClass('td--active');
@@ -73,6 +73,7 @@ AH.cellClick = function () {
 
 		if ('undefined' !== typeof(parent.data('years'))) {
 			years = parent.data('years');
+			yearsTrue = true;
 		} else {
 			years = 1;
 		}
@@ -82,32 +83,32 @@ AH.cellClick = function () {
 
 
 		if (1 !== level) {
-			if (1 !== users && 1 !== years) {
+			if (1 !== users && false !== yearsTrue) {
 				beforeText = '',
 				afterText = '';
 
 				outputText = 'All have been selected!';
 			} else if (1 !== users) {
 				outputText = 'Number of Years';
-			} else if (1 !== years) {
+			} else if (false !== yearsTrue) {
 				outputText = 'users';
 			} else {
 				outputText = 'Number of Years and Users';
 			}
 		} else if (1 !== users) {
-			if (1 !== level && 1 !== years) {
+			if (1 !== level && false !== yearsTrue) {
 				beforeText = '',
 				afterText = '';
 
 				outputText = 'All have been selected!';
 			} else if (1 !== level) {
 				outputText = 'Number of Years';
-			} else if (1 !== years) {
+			} else if (false !== yearsTrue) {
 				outputText = 'Level';
 			} else {
 				outputText = 'Number of Years and Level';
 			}
-		} else if (1 !== years) {
+		} else if (false !== yearsTrue) {
 			if (1 !== users && 1 !== level) {
 				beforeText = '',
 				afterText = '';
@@ -122,11 +123,25 @@ AH.cellClick = function () {
 			}
 		}
 
-		cost = (level * (users * usersReduction) * (years * yearsReduction));
+		if ('undefined' !== typeof(parent.data('reduction-users'))) {
+			usersReduction = parent.data('reduction-users');
+			usersReduction = AH.reductionCalc(usersReduction);
+		}
 
-		// asign the calculation to the text of .output
-		AH.output.text(level * users * years);
+		if ('undefined' !== typeof(parent.data('reduction-years'))) {
+			yearsReduction = parent.data('reduction-years');
+			yearsReduction = AH.reductionCalc(yearsReduction);
+		}
+
+		cost = (level * (users * usersReduction) * (years * yearsReduction));
+		// output the value to the output text
+		AH.output.text(cost.toFixed(0));
+
+
 		$('.output-text').html(beforeText + outputText + afterText);
+
+
+
 	});
 };
 
@@ -151,6 +166,10 @@ AH.checkRow = function (el) {
 	} else {
 		return false;
 	}
+};
+
+AH.reductionCalc = function (reduction) {
+	return (1 - (reduction / 100));
 };
 
 AH.init();
