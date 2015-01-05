@@ -9,88 +9,77 @@
 	<link rel="stylesheet" href="build/css/style.css">
 </head>
 <body class="table-comparison">
-
 	<div class="container">
 		<main>
-			<table id="table">
-				<tr>
-					<th colspan="3">Level</th>
-					<th colspan="3">Users</th>
-					<th colspan="5">Years</th>
-				</tr>
-				<tr>
-					<th>100</th>
-					<th>300</th>
-					<th>1500</th>
-					<th>2</th>
-					<th>6</th>
-					<th>16</th>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>4</th>
-					<th>5</th>
-				</tr>
-				<tr class="row">
-					<td class="level" data-level="100">100</td>
-					<td class="level" data-level="300">300</td>
-					<td class="level" data-level="1500">1500</td>
+			<table class="pricing-table">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="level">Bronze</th>
+						<th class="level">Silver</th>
+						<th class="level">Gold</th>
+						<th class="users">2-5 Users</th>
+						<th class="users">6-15 Users</th>
+						<th class="users">16+ Users</th>
+						<th class="years">Year 1</th>
+						<th class="years">Year 2</th>
+						<th class="years">Year 3</th>
+						<th class="years">Year 4</th>
+						<th class="years">Year 5</th>
+					</tr>
+					<tr class="table__sub-title">
+						<td></td>
+						<td colspan="3" class="level">Single User Per Annum License</td>
+						<td colspan="3" class="users">Discounts<span>*</span></td>
+						<td colspan="5" class="years">Discounts<span>**</span></td>
+					</tr>
+				</thead>
+				<tbody id="pricing-tbody">
+					<tr>
+						<td><strong>Building</strong> (Software)</td>
+						<td class="level" data-level="750">£750</td>
+						<td class="level" data-level="1000">£1,000</td>
+						<td class="level" data-level="1200">£1,200</td>
+						<td class="users" data-reduction-users="10" data-users="2">10%</td>
+						<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
+						<td class="users" data-reduction-users="15" data-users="16">15%</td>
+						<td class="years" data-reduction-years="10" data-years="1">10%</td>
+						<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
+						<td class="years" data-reduction-years="15" data-years="3">15%</td>
+						<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
+						<td class="years" data-reduction-years="20" data-years="5">20%</td>
+					</tr>
 
-					<td class="users" data-reduction-users="10" data-users="2">10%</td>
-					<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
-					<td class="users" data-reduction-users="15" data-users="16">15%</td>
+					<tr>
+						<td><strong>Mechanical</strong> (Software)</td>
+						<td class="level" data-level="750">£750</td>
+						<td class="level" data-level="1000">£1,000</td>
+						<td class="level" data-level="1200">£1,200</td>
+						<td class="users" data-reduction-users="10" data-users="2">10%</td>
+						<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
+						<td class="users" data-reduction-users="15" data-users="16">15%</td>
+						<td class="years" data-reduction-years="10" data-years="1">10%</td>
+						<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
+						<td class="years" data-reduction-years="15" data-years="3">15%</td>
+						<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
+						<td class="years" data-reduction-years="20" data-years="5">20%</td>
+					</tr>
 
-					<td class="years" data-reduction-years="10" data-years="1">10%</td>
-					<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
-					<td class="years" data-reduction-years="15" data-years="3">15%</td>
-					<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
-					<td class="years" data-reduction-years="20" data-years="5">20%</td>
-				</tr>
-				<tr class="row">
-					<td class="level" data-level="100">100</td>
-					<td class="level" data-level="300">300</td>
-					<td class="level" data-level="1500">1500</td>
-
-					<td class="users" data-reduction-users="10" data-users="2">10%</td>
-					<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
-					<td class="users" data-reduction-users="15" data-users="16">15%</td>
-
-					<td class="years" data-reduction-years="10" data-years="1">10%</td>
-					<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
-					<td class="years" data-reduction-years="15" data-years="3">15%</td>
-					<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
-					<td class="years" data-reduction-years="20" data-years="5">20%</td>
-				</tr>
-				<tr class="row">
-					<td class="level" data-level="100">100</td>
-					<td class="level" data-level="300">300</td>
-					<td class="level" data-level="1500">1500</td>
-
-					<td class="users" data-reduction-users="10" data-users="2">10%</td>
-					<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
-					<td class="users" data-reduction-users="15" data-users="16">15%</td>
-
-					<td class="years" data-reduction-years="10" data-years="1">10%</td>
-					<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
-					<td class="years" data-reduction-years="15" data-years="3">15%</td>
-					<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
-					<td class="years" data-reduction-years="20" data-years="5">20%</td>
-				</tr>
-				<tr class="row">
-					<td class="level" data-level="100">100</td>
-					<td class="level" data-level="300">300</td>
-					<td class="level" data-level="1500">1500</td>
-
-					<td class="users" data-reduction-users="10" data-users="2">10%</td>
-					<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
-					<td class="users" data-reduction-users="15" data-users="16">15%</td>
-
-					<td class="years" data-reduction-years="10" data-years="1">10%</td>
-					<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
-					<td class="years" data-reduction-years="15" data-years="3">15%</td>
-					<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
-					<td class="years" data-reduction-years="20" data-years="5">20%</td>
-				</tr>
+					<tr>
+						<td><strong>Electrical</strong> (Software)</td>
+						<td class="level" data-level="750">£750</td>
+						<td class="level" data-level="1000">£1,000</td>
+						<td class="level" data-level="1200">£1,200</td>
+						<td class="users" data-reduction-users="10" data-users="2">10%</td>
+						<td class="users" data-reduction-users="12.5" data-users="6">12.5%</td>
+						<td class="users" data-reduction-users="15" data-users="16">15%</td>
+						<td class="years" data-reduction-years="10" data-years="1">10%</td>
+						<td class="years" data-reduction-years="12.5" data-years="2">12.5%</td>
+						<td class="years" data-reduction-years="15" data-years="3">15%</td>
+						<td class="years" data-reduction-years="17.5" data-years="4">17.5%</td>
+						<td class="years" data-reduction-years="20" data-years="5">20%</td>
+					</tr>
+				</tbody>
 			</table>
 			<!-- <div class="level sub-output"></div>
 			<div class="users sub-output"></div>

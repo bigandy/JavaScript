@@ -3,7 +3,7 @@
 window.AH = {};
 
 AH.init = function () {
-	this.table = $('#table');
+	this.tbody = $('#pricing-tbody');
 	AH.cellClick();
 
 	this.outputRow = $('<tr />', {
@@ -12,15 +12,13 @@ AH.init = function () {
 
 	this.output = $('<td colspan="12" />', {
 		class: 'output'
-	})
+	});
 
 	this.outputRow.append(this.output);
-
-	// this.table.append(this.outputRow);
 };
 
 AH.cellClick = function () {
-	this.table.on('click', '.row td', function () {
+	this.tbody.on('click', 'td', function () {
 		var $this = $(this),
 			tdClass = $this.attr('class'),
 			parent = $this.parent('tr'),
@@ -88,6 +86,7 @@ AH.cellClick = function () {
 				afterText = '';
 
 				outputText = 'All have been selected!';
+				allSelected = true;
 			} else if (1 !== users) {
 				outputText = 'Number of Years';
 			} else if (false !== yearsTrue) {
@@ -101,6 +100,7 @@ AH.cellClick = function () {
 				afterText = '';
 
 				outputText = 'All have been selected!';
+				allSelected = true;
 			} else if (1 !== level) {
 				outputText = 'Number of Years';
 			} else if (false !== yearsTrue) {
@@ -114,6 +114,7 @@ AH.cellClick = function () {
 				afterText = '';
 
 				outputText = 'All have been selected!';
+				allSelected = true;
 			} else if (1 !== users) {
 				outputText = 'users + years';
 			} else if (1 !== level) {
@@ -135,13 +136,11 @@ AH.cellClick = function () {
 
 		cost = (level * (users * usersReduction) * (years * yearsReduction));
 		// output the value to the output text
-		AH.output.text('£' + cost.toFixed(0));
-
+		if (true === allSelected) {
+			AH.output.html('Estimated Total £' + cost.toFixed(0)  + ' + VAT <br /> Please contact us for a full quote + <a href="#" class="btn btn--table">Make Enquiry</a>');
+		}
 
 		$('.output-text').html(beforeText + outputText + afterText);
-
-
-
 	});
 };
 
