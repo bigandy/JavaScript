@@ -135,7 +135,7 @@ AH.cellClick = function () {
 
 		cost = (level * (users * usersReduction) * (years * yearsReduction));
 		// output the value to the output text
-		AH.output.text(cost.toFixed(0));
+		AH.output.text('£' + cost.toFixed(0));
 
 
 		$('.output-text').html(beforeText + outputText + afterText);
