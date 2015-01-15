@@ -14,9 +14,9 @@
 
   function tweetMessage (input) {
   	if (input !== undefined) {
-  		return input + ". ";
+  		return input;
   	} else {
-  		return '';
+  		return city;
   	}
   }
 
@@ -29,19 +29,20 @@
 	tokenSecret,
 	d = new Date(),
 	weatherCondtions,
-	city = "Seoul",
+	city = "Didcot",
+	url = 'http://openweathermap.org/find?q=' + tweetMessage(args[2]).split(' ').join('+'),
 
 	weather = require("Openweather-Node");
-	weather.now(city, function(err, data){
+	weather.now(tweetMessage(args[2]), function(err, data){
 	    if (err) {
 	    	console.log(err);
 	    } else {
 	    	weatherCondtions = data.values.weather[0].main;
-	    	console.log(data.getDegreeTemp().temp.toFixed(2));
-	    	//
-	    	//
-	    	var tweetContent = tweetMessage(args[2]) + "Tweeted at " + d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " and the weather in " + city + " is currently: " + weatherCondtions + " and " + data.getDegreeTemp().temp.toFixed(2) + "°C #nodejs #weather";
+	    	// console.log(data.getDegreeTemp().temp.toFixed(2));
 
+	    	var tweetContent = d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " & the weather in " + tweetMessage(args[2]) + " is: " + weatherCondtions + " & " + data.getDegreeTemp().temp.toFixed(2) + "°C #nodejs #weather " + url;
+
+	    	// console.log(url);
 
 
 	    	// You could use node-passport and passport-twitter to get an access token easily
