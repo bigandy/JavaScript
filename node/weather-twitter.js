@@ -29,9 +29,10 @@
 	tokenSecret,
 	d = new Date(),
 	weatherCondtions,
+	city = "Seoul",
 
 	weather = require("Openweather-Node");
-	weather.now("Didcot, GB",function(err, data){
+	weather.now(city, function(err, data){
 	    if (err) {
 	    	console.log(err);
 	    } else {
@@ -39,7 +40,7 @@
 	    	console.log(data.getDegreeTemp().temp.toFixed(2));
 	    	//
 	    	//
-	    	var tweetContent = tweetMessage(args[2]) + "Tweeted at " + d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " and the weather in Didcot is currently: " + weatherCondtions + " and " + data.getDegreeTemp().temp.toFixed(2) + "°C #nodejs #weather";
+	    	var tweetContent = tweetMessage(args[2]) + "Tweeted at " + d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " and the weather in " + city + " is currently: " + weatherCondtions + " and " + data.getDegreeTemp().temp.toFixed(2) + "°C #nodejs #weather";
 
 
 
