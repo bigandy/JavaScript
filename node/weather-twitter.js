@@ -1,38 +1,34 @@
-
-
-
 (function () {
-  "use strict";
+	"use strict";
 
-  function lessThanTenAddZero (value) {
-  	if (value <= 10) {
-  		return "0" + value;
-  	} else {
-  		return value;
-  	}
-  }
+	function lessThanTenAddZero (value) {
+		if (value <= 10) {
+			return "0" + value;
+		} else {
+			return value;
+		}
+	}
 
-  function tweetMessage (input) {
-  	if (input !== undefined) {
-  		return input;
-  	} else {
-  		return city;
-  	}
-  }
+	function tweetMessage (input) {
+		if (input !== undefined) {
+			return input;
+		} else {
+		return city;
+		}
+	}
 
-  var
-  	args = process.argv,
-  	config = require('./config.twitter.json'),
-	Twitter = require('node-twitter'),
-	twitter,
-	token,
-	tokenSecret,
-	d = new Date(),
-	weatherCondtions,
-	city = "Didcot",
-	url = 'http://openweathermap.org/find?q=' + tweetMessage(args[2]).split(' ').join('+'),
+	var	args = process.argv,
+		config = require('./config.twitter.json'),
+		Twitter = require('node-twitter'),
+		twitter,
+		token,
+		tokenSecret,
+		d = new Date(),
+		weatherCondtions,
+		city = "Didcot",
+		url = 'http://openweathermap.org/find?q=' + tweetMessage(args[2]).split(' ').join('+'),
+		weather = require("Openweather-Node");
 
-	weather = require("Openweather-Node");
 	weather.now(tweetMessage(args[2]), function(err, data){
 	    if (err) {
 	    	console.log(err);
@@ -41,9 +37,6 @@
 	    	// console.log(data.getDegreeTemp().temp.toFixed(2));
 
 	    	var tweetContent = d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " & the weather in " + tweetMessage(args[2]) + " is: " + weatherCondtions + " & " + data.getDegreeTemp().temp.toFixed(2) + "°C #nodejs #weather " + url;
-
-	    	// console.log(url);
-
 
 	    	// You could use node-passport and passport-twitter to get an access token easily
 	    	// See http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html
@@ -68,9 +61,6 @@
 	    		}
 	    	);
 	    }
-
 	    return weatherCondtions;
 	});
-
-
 }());
