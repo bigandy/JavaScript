@@ -9,17 +9,24 @@
   	}
   }
 
+  function tweetMessage (input) {
+  	if (input !== undefined) {
+  		return input + ". ";
+  	} else {
+  		return '';
+  	}
+  }
+
   var
+  	args = process.argv,
   	config = require('./config.twitter.json'),
 	Twitter = require('node-twitter'),
 	twitter,
 	token,
 	tokenSecret,
 	d = new Date(),
-	tweetContent = "Tweeted at " + d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " on " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " #andrewhudsondev";
 
-
-
+	tweetContent = tweetMessage(args[2]) + "Tweeted at " + d.getHours() + ":" + lessThanTenAddZero(d.getMinutes()) + ":" + lessThanTenAddZero(d.getSeconds()) + " on " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " #andrewhudsondev";
 
 	// You could use node-passport and passport-twitter to get an access token easily
 	// See http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html
