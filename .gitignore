@@ -6,3 +6,5 @@ app/js/bower_components
 bower_components
 dist
 *.sublime-*
+
+config.twitter.json
