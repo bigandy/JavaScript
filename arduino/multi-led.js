@@ -20,12 +20,9 @@ myBoard.on("ready", function() {
 
 	function oneAfterAnother() {
 		var delay = 0;
-			myBoard.counter = 0,
-			ledLength = leds.length,
-			i = ledLength;
+			myBoard.counter = 0;
 
-		while (i--) {
-
+		leds.forEach(function (item){
 			myBoard.wait(delay, function () {
 				// console.log(this.counter + " on");
 				leds[this.counter].on();
@@ -40,7 +37,7 @@ myBoard.on("ready", function() {
 			});
 
 			delay += (d.getSeconds() * timeAmplifier);
-		}
+		});
 	}
 
 	oneAfterAnother();
