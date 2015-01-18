@@ -4,16 +4,16 @@ var args = process.argv,
 	twitter,
 	token,
 	tokenSecret,
-	d = new Date();
+	d = new Date(),
+	Tweet = {};
 
-
-var tweet = {
+Tweet = {
 	lessThanTenAddZero: function (value) {
 		if (value <= 10) {
 			return "0" + value;
-		} else {
-			return value;
 		}
+
+		return value;
 	},
 
 	tweetMessage: function (input) {
@@ -24,20 +24,28 @@ var tweet = {
 		}
 	},
 
-	tweetContent: function () {
-		return tweetContent = this.tweetMessage(args[2]) + "Tweeted at " + d.getHours() + ":" + this.lessThanTenAddZero(d.getMinutes()) + ":" + this.lessThanTenAddZero(d.getSeconds()) + " on " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " #andrewhudsondev";
+	tweetContent: function (input) {
+		var message = this.tweetMessage(args[2]);
+			time = d.getHours() + ":" + this.lessThanTenAddZero(d.getMinutes()) + ":" + this.lessThanTenAddZero(d.getSeconds()),
+			date = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
+
+		tweetContent = (input) ? input + ' ' : message + "Tweeted at " + time + " on " + date + " #andrewhudsondev";
+		// console.log(this.tweetMessage(tweetContent));
+
+		return tweetContent;
 	},
 
-	sendTweet: function () {
-		var twitter = new Twitter.RestClient(
-				config.consumerKey,
-				config.consumerSecret,
-				config.token,
-				config.tokenSecret
-			);
+	twitterConfig: new Twitter.RestClient(
+		config.consumerKey,
+		config.consumerSecret,
+		config.token,
+		config.tokenSecret
+	),
 
-		twitter.statusesUpdate({
-				status: this.tweetContent()
+	sendTweet: function (input) {
+
+		this.twitterConfig.statusesUpdate({
+				status: this.tweetContent(input)
 			},
 			function (err, data) {
 				if (err) {
@@ -50,11 +58,7 @@ var tweet = {
 	}
 };
 
-tweet.sendTweet();
-
-module.exports = tweet;
-
-
+module.exports = Tweet;
 
 // You could use node-passport and passport-twitter to get an access token easily
 // See http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html
