@@ -1,4 +1,4 @@
-var args = process.argv,
+var argv = require('optimist').argv,
 	config = require('./config.twitter.json'),
 	Twitter = require('node-twitter'),
 	twitter,
@@ -25,7 +25,9 @@ Tweet = {
 	},
 
 	tweetContent: function (input) {
-		var message = this.tweetMessage(args[2]);
+		var inputMessage = argv.m || argv.message;
+			message = this.tweetMessage(inputMessage);
+
 			time = d.getHours() + ":" + this.lessThanTenAddZero(d.getMinutes()) + ":" + this.lessThanTenAddZero(d.getSeconds()),
 			date = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
 
@@ -44,6 +46,8 @@ Tweet = {
 
 	sendTweet: function (input) {
 
+		// console.log(this.tweetContent());
+
 		this.twitterConfig.statusesUpdate({
 				status: this.tweetContent(input)
 			},
@@ -57,7 +61,7 @@ Tweet = {
 		);
 	}
 };
-
+Tweet.sendTweet();
 module.exports = Tweet;
 
 // You could use node-passport and passport-twitter to get an access token easily
