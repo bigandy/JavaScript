@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Background Image Carousel</title>
+	<meta name="viewport" content="width=device-width">
+	<script src="js/vendor/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="build/css/style.css">
+	<style>
+		.container div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="container" id="container" data-images="http://www.placecage.com/1200/1200, http://www.placecage.com/1100/1100, http://www.placecage.com/1000/1000"></div>
+	</div>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script>
+
+		var container = $('#container');
+			images = container.data('images').split(',');
+			index = 0,
+			interval = 5000,
+			fadeTime = 400;
+
+		$.each(images, function(i) {
+			var image = $('<div />', {
+				'src': images[i]
+			})
+				.css({
+					'backgroundImage': 'url(' + images[i] + ')'
+				});
+			container.append(image);
+		});
+
+		images = container.find('div');
+
+		function changeBg() {
+			index = (index + 1) % images.length;
+
+			images.fadeOut(0);
+			images.eq(index).fadeIn(fadeTime);
+		}
+
+		setInterval(changeBg, interval);
+	</script>
+</body>
+</html>

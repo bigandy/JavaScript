@@ -1,0 +1,1064 @@
+[
+	{
+		"date": "1-Jan",
+		"sunrise": "08:12",
+		"sunset": "16:05"
+	},
+	{
+		"date": "2-Jan",
+		"sunrise": "08:12",
+		"sunset": "16:06"
+	},
+	{
+		"date": "3-Jan",
+		"sunrise": "08:12",
+		"sunset": "16:07"
+	},
+	{
+		"date": "16-Jan",
+		"sunrise": "08:11",
+		"sunset": "16:08"
+	},
+	{
+		"date": "17-Jan",
+		"sunrise": "08:11",
+		"sunset": "16:10"
+	},
+	{
+		"date": "6-Jan",
+		"sunrise": "08:11",
+		"sunset": "16:11"
+	},
+	{
+		"date": "7-Jan",
+		"sunrise": "08:10",
+		"sunset": "16:12"
+	},
+	{
+		"date": "8-Jan",
+		"sunrise": "08:10",
+		"sunset": "16:14"
+	},
+	{
+		"date": "9-Jan",
+		"sunrise": "08:09",
+		"sunset": "16:15"
+	},
+	{
+		"date": "10-Jan",
+		"sunrise": "08:09",
+		"sunset": "16:16"
+	},
+	{
+		"date": "11-Jan",
+		"sunrise": "08:08",
+		"sunset": "16:18"
+	},
+	{
+		"date": "12-Jan",
+		"sunrise": "08:08",
+		"sunset": "16:19"
+	},
+	{
+		"date": "13-Jan",
+		"sunrise": "08:07",
+		"sunset": "16:21"
+	},
+	{
+		"date": "14-Jan",
+		"sunrise": "08:06",
+		"sunset": "16:22"
+	},
+	{
+		"date": "15-Jan",
+		"sunrise": "08:05",
+		"sunset": "16:24"
+	},
+	{
+		"date": "16-Jan",
+		"sunrise": "08:04",
+		"sunset": "16:25"
+	},
+	{
+		"date": "17-Jan",
+		"sunrise": "08:04",
+		"sunset": "16:27"
+	},
+	{
+		"date": "18-Jan",
+		"sunrise": "08:03",
+		"sunset": "16:29"
+	},
+	{
+		"date": "19-Jan",
+		"sunrise": "08:02",
+		"sunset": "16:30"
+	},
+	{
+		"date": "20-Jan",
+		"sunrise": "08:00",
+		"sunset": "16:32"
+	},
+	{
+		"date": "21-Jan",
+		"sunrise": "07:59",
+		"sunset": "16:34"
+	},
+	{
+		"date": "22-Jan",
+		"sunrise": "07:58",
+		"sunset": "16:35"
+	},
+	{
+		"date": "23-Jan",
+		"sunrise": "07:57",
+		"sunset": "16:37"
+	},
+	{
+		"date": "24-Jan",
+		"sunrise": "07:56",
+		"sunset": "16:39"
+	},
+	{
+		"date": "25-Jan",
+		"sunrise": "07:55",
+		"sunset": "16:40"
+	},
+	{
+		"date": "26-Jan",
+		"sunrise": "07:53",
+		"sunset": "16:42"
+	},
+	{
+		"date": "27-Jan",
+		"sunrise": "07:52",
+		"sunset": "16:44"
+	},
+	{
+		"date": "28-Jan",
+		"sunrise": "07:51",
+		"sunset": "16:46"
+	},
+	{
+		"date": "29-Jan",
+		"sunrise": "07:49",
+		"sunset": "16:48"
+	},
+	{
+		"date": "30-Jan",
+		"sunrise": "07:48",
+		"sunset": "16:49"
+	},
+	{
+		"date": "31-Jan",
+		"sunrise": "07:46",
+		"sunset": "16:51"
+	},
+
+	{
+		"date": "feb-1",
+		"sunrise": "07:45",
+		"sunset": "16:53"
+	},
+	{
+		"date": "feb-2",
+		"sunrise": "07:43",
+		"sunset": "16:55"
+	},
+	{
+		"date": "feb-3",
+		"sunrise": "07:41",
+		"sunset": "16:57"
+	},
+	{
+		"date": "feb-4",
+		"sunrise": "07:40",
+		"sunset": "16:59"
+	},
+	{
+		"date": "feb-5",
+		"sunrise": "07:38",
+		"sunset": "17:00"
+	},
+	{
+		"date": "feb-6",
+		"sunrise": "07:37",
+		"sunset": "17:02"
+	},
+	{
+		"date": "feb-7",
+		"sunrise": "07:35",
+		"sunset": "17:04"
+	},
+	{
+		"date": "feb-8",
+		"sunrise": "07:33",
+		"sunset": "17:06"
+	},
+	{
+		"date": "feb-9",
+		"sunrise": "07:31",
+		"sunset": "17:08"
+	},
+	{
+		"date": "feb-10",
+		"sunrise": "07:29",
+		"sunset": "17:10"
+	},
+	{
+		"date": "feb-11",
+		"sunrise": "07:28",
+		"sunset": "17:11"
+	},
+	{
+		"date": "feb-12",
+		"sunrise": "07:26",
+		"sunset": "17:13"
+	},
+	{
+		"date": "feb-13",
+		"sunrise": "07:24",
+		"sunset": "17:15"
+	},
+	{
+		"date": "feb-14",
+		"sunrise": "07:22",
+		"sunset": "17:17"
+	},
+	{
+		"date": "feb-15",
+		"sunrise": "07:20",
+		"sunset": "17:19"
+	},
+	{
+		"date": "feb-16",
+		"sunrise": "07:18",
+		"sunset": "17:21"
+	},
+	{
+		"date": "feb-17",
+		"sunrise": "07:16",
+		"sunset": "17:23"
+	},
+	{
+		"date": "feb-18",
+		"sunrise": "07:14",
+		"sunset": "17:24"
+	},
+	{
+		"date": "feb-19",
+		"sunrise": "07:12",
+		"sunset": "17:26"
+	},
+	{
+		"date": "feb-20",
+		"sunrise": "07:10",
+		"sunset": "17:28"
+	},
+	{
+		"date": "feb-21",
+		"sunrise": "07:08",
+		"sunset": "17:30"
+	},
+	{
+		"date": "feb-22",
+		"sunrise": "07:06",
+		"sunset": "17:32"
+	},
+	{
+		"date": "feb-23",
+		"sunrise": "07:04",
+		"sunset": "17:34"
+	},
+	{
+		"date": "feb-24",
+		"sunrise": "07:02",
+		"sunset": "17:35"
+	},
+	{
+		"date": "feb-25",
+		"sunrise": "07:00",
+		"sunset": "17:37"
+	},
+	{
+		"date": "feb-26",
+		"sunrise": "06:58",
+		"sunset": "17:39"
+	},
+	{
+		"date": "feb-27",
+		"sunrise": "06:56",
+		"sunset": "17:41"
+	},
+	{
+		"date": "feb-28",
+		"sunrise": "06:53",
+		"sunset": "17:43"
+	},
+	{
+		"date": "mar-1",
+		"sunrise": "06:51",
+		"sunset": "17:44"
+	},
+	{
+		"date": "mar-2",
+		"sunrise": "06:49",
+		"sunset": "17:46"
+	},
+	{
+		"date": "mar-3",
+		"sunrise": "06:47",
+		"sunset": "17:48"
+	},
+	{
+		"date": "mar-4",
+		"sunrise": "06:45",
+		"sunset": "17:50"
+	},
+	{
+		"date": "mar-5",
+		"sunrise": "06:43",
+		"sunset": "17:51"
+	},
+	{
+		"date": "mar-6",
+		"sunrise": "06:40",
+		"sunset": "17:53"
+	},
+	{
+		"date": "mar-7",
+		"sunrise": "06:38",
+		"sunset": "17:55"
+	},
+	{
+		"date": "mar-8",
+		"sunrise": "06:36",
+		"sunset": "17:57"
+	},
+	{
+		"date": "mar-9",
+		"sunrise": "06:34",
+		"sunset": "17:58"
+	},
+	{
+		"date": "mar-10",
+		"sunrise": "06:31",
+		"sunset": 	"18:00"
+	},
+	{
+		"date": "mar-11",
+		"sunrise": "06:29",
+		"sunset": 	"18:02"
+	},
+	{
+		"date": "mar-12",
+		"sunrise": "06:27",
+		"sunset": 	"18:04"
+	},
+	{
+		"date": "mar-13",
+		"sunrise": "06:25",
+		"sunset": 	"18:05"
+	},
+	{
+		"date": "mar-14",
+		"sunrise": "06:22",
+		"sunset": 	"18:07"
+	},
+	{
+		"date": "mar-15",
+		"sunrise": "06:20",
+		"sunset": 	"18:09"
+	},
+	{
+		"date": "mar-16",
+		"sunrise": "06:18",
+		"sunset": 	"18:11"
+	},
+	{
+		"date": "mar-17",
+		"sunrise": "06:16",
+		"sunset": 	"18:12"
+	},
+	{
+		"date": "mar-18",
+		"sunrise": "06:13",
+		"sunset": 	"18:14"
+	},
+	{
+		"date": "mar-19",
+		"sunrise": "06:11",
+		"sunset": 	"18:16"
+	},
+	{
+		"date": "mar-20",
+		"sunrise": "06:09",
+		"sunset": 	"18:17"
+	},
+	{
+		"date": "mar-21",
+		"sunrise": "06:06",
+		"sunset": 	"18:19"
+	},
+	{
+		"date": "mar-22",
+		"sunrise": "06:04",
+		"sunset": 	"18:21"
+	},
+	{
+		"date": "mar-23",
+		"sunrise": "06:02",
+		"sunset": 	"18:23"
+	},
+	{
+		"date": "mar-24",
+		"sunrise": "05:59",
+		"sunset": "18:24"
+	},
+	{
+		"date": "mar-25",
+		"sunrise": "05:57",
+		"sunset": "18:26"
+	},
+	{
+		"date": "mar-26",
+		"sunrise": "05:55",
+		"sunset": "18:28"
+	},
+	{
+		"date": "mar-27",
+		"sunrise": "05:53",
+		"sunset": "18:29"
+	},
+	{
+		"date": "mar-28",
+		"sunrise": "05:50",
+		"sunset": "18:31"
+	},
+	{
+		"date": "mar-29",
+		"sunrise": "06:48",
+		"sunset": 	"19:33"
+	},
+	{
+		"date": "mar-30",
+		"sunrise": "06:46",
+		"sunset": 	"19:34"
+	},
+	{
+		"date": "mar-31",
+		"sunrise": "06:43",
+		"sunset": 	"19:36"
+	},
+	{
+		"date": "apr-1",
+		"sunrise": "06:41",
+		"sunset": "19:38"
+	},
+	{
+		"date": "apr-2",
+		"sunrise": "06:39",
+		"sunset": "19:40"
+	},
+	{
+		"date": "apr-3",
+		"sunrise": "06:37",
+		"sunset": "19:41"
+	},
+	{
+		"date": "apr-4",
+		"sunrise": "06:34",
+		"sunset": "19:43"
+	},
+	{
+		"date": "apr-5",
+		"sunrise": "06:32",
+		"sunset": "19:45"
+	},
+	{
+		"date": "apr-6",
+		"sunrise": "06:30",
+		"sunset": "19:46"
+	},
+	{
+		"date": "apr-7",
+		"sunrise": "06:27",
+		"sunset": "19:48"
+	},
+	{
+		"date": "apr-8",
+		"sunrise": "06:25",
+		"sunset": "19:50"
+	},
+	{
+		"date": "apr-9",
+		"sunrise": "06:23",
+		"sunset": "19:51"
+	},
+	{
+		"date": "apr-10"
+			"sunrise": "06:21",
+			 "sunset": "19:53"
+	},
+	{
+		"date": "apr-11"
+			"sunrise": "06:19",
+			 "sunset": "19:55"
+	},
+	{
+		"date": "apr-12"
+			"sunrise": "06:16",
+			 "sunset": "19:56"
+	},
+	{
+		"date": "apr-13"
+			"sunrise": "06:14",
+			 "sunset": "19:58"
+	},
+	{
+		"date": "apr-14"
+			"sunrise": "06:12",
+			 "sunset": "20:00"
+	},
+	{
+		"date": "apr-15"
+			"sunrise": "06:10",
+			 "sunset": "20:02"
+	},
+	{
+		"date": "apr-16"
+			"sunrise": "06:08",
+			 "sunset": "20:03"
+	},
+	{
+		"date": "apr-17"
+			"sunrise": "06:05",
+			 "sunset": "20:05"
+	},
+	{
+		"date": "apr-18"
+			"sunrise": "06:03",
+			 "sunset": "20:07"
+	},
+	{
+		"date": "apr-19"
+			"sunrise": "06:01",
+			 "sunset": "20:08"
+	},
+	{
+		"date": "apr-20"
+			"sunrise": "05:59",
+			 "sunset": "20:10"
+	},
+	{
+		"date": "apr-21"
+			"sunrise": "05:57",
+			 "sunset": "20:12"
+	},
+	{
+		"date": "apr-22"
+			"sunrise": "05:55",
+			 "sunset": "20:13"
+	},
+	{
+		"date": "apr-23"
+			"sunrise": "05:53",
+			 "sunset": "20:15"
+	},
+	{
+		"date": "apr-24"
+			"sunrise": "05:51",
+			 "sunset": "20:17"
+	},
+	{
+		"date": "apr-25"
+			"sunrise": "05:49",
+			 "sunset": "20:18"
+	},
+	{
+		"date": "apr-26"
+			"sunrise": "05:47",
+			 "sunset": "20:20"
+	},
+	{
+		"date": "apr-27"
+			"sunrise": "05:45",
+			 "sunset": "20:22"
+	},
+	{
+		"date": "apr-28"
+			"sunrise": "05:43",
+			 "sunset": "20:23"
+	},
+	{
+		"date": "apr-29"
+			"sunrise": "05:41",
+			 "sunset": "20:25"
+	},
+	{
+		"date": "apr-30"
+			"sunrise": "05:39",
+			 "sunset": "20:27"
+	},
+	{
+		"date": "may-1",
+		"sunrise": "05:37",
+		"sunset": "20:28",
+	},
+	{
+		"date": "may-2",
+		"sunrise": "05:35",
+		"sunset": "20:30",
+	},
+	{
+		"date": "may-3",
+		"sunrise": "05:33",
+		"sunset": "20:32",
+	},
+	{
+		"date": "may-4",
+		"sunrise": "05:31",
+		"sunset": "20:33",
+	},
+	{
+		"date": "may-5",
+		"sunrise": "05:29",
+		"sunset": "20:35",
+	},
+	{
+		"date": "may-6",
+		"sunrise": "05:28",
+		"sunset": "20:37",
+	},
+	{
+		"date": "may-7",
+		"sunrise": "05:26",
+		"sunset": "20:38",
+	},
+	{
+		"date": "may-8",
+		"sunrise": "05:24",
+		"sunset": "20:40",
+	},
+	{
+		"date": "may-9",
+		"sunrise": "05:22",
+		"sunset": "20:41",
+	},
+	{
+		"date": "may-10",
+		"sunrise": "05:21",
+		"sunset": "20:43",
+	},
+	{
+		"date": "may-11",
+		"sunrise": "05:19",
+		"sunset": "20:45",
+	},
+	{
+		"date": "may-12",
+		"sunrise": "05:17",
+		"sunset": "20:46",
+	},
+	{
+		"date": "may-13",
+		"sunrise": "05:16",
+		"sunset": "20:48",
+	},
+	{
+		"date": "may-14",
+		"sunrise": "05:14",
+		"sunset": "20:49",
+	},
+	{
+		"date": "may-15",
+		"sunrise": "05:13",
+		"sunset": "20:51",
+	},
+	{
+		"date": "may-16",
+		"sunrise": "05:11",
+		"sunset": "20:52",
+	},
+	{
+		"date": "may-17",
+		"sunrise": "05:10",
+		"sunset": "20:54",
+	},
+	{
+		"date": "may-18",
+		"sunrise": "05:08",
+		"sunset": "20:55",
+	},
+	{
+		"date": "may-19",
+		"sunrise": "05:07",
+		"sunset": "20:57",
+	},
+	{
+		"date": "may-20",
+		"sunrise": "05:06",
+		"sunset": "20:58",
+	},
+	{
+		"date": "may-21",
+		"sunrise": "05:04",
+		"sunset": "21:00",
+	},
+	{
+		"date": "may-22",
+		"sunrise": "05:03",
+		"sunset": "21:01",
+	},
+	{
+		"date": "may-23",
+		"sunrise": "05:02",
+		"sunset": "21:02",
+	},
+	{
+		"date": "may-24",
+		"sunrise": "05:01",
+		"sunset": "21:04",
+	},
+	{
+		"date": "may-25",
+		"sunrise": "04:59",
+		"sunset": "21:05",
+	},
+	{
+		"date": "may-26",
+		"sunrise": "04:58",
+		"sunset": "21:06",
+	},
+	{
+		"date": "may-27",
+		"sunrise": "04:57",
+		"sunset": "21:08",
+	},
+	{
+		"date": "may-28",
+		"sunrise": "04:56",
+		"sunset": "21:09",
+	},
+	{
+		"date": "may-29",
+		"sunrise": "04:55",
+		"sunset": "21:10",
+	},
+	{
+		"date": "may-30",
+		"sunrise": "04:54",
+		"sunset": "21:11",
+	},
+	{
+		"date": "may-31",
+		"sunrise": "04:53",
+		"sunset": "21:12",
+	},
+	{
+		"date": "1-june",
+		"sunrise": "04:53",
+		"sunset": "21:14"
+	},
+	{
+		"date": "2-june",
+		"sunrise": "04:52",
+		"sunset": "21:15"
+	},
+	{
+		"date": "3-june",
+		"sunrise": "04:51",
+		"sunset": "21:16"
+	},
+	{
+		"date": "4-june",
+		"sunrise": "04:50",
+		"sunset": "21:17"
+	},
+	{
+		"date": "5-june",
+		"sunrise": "04:50",
+		"sunset": "21:18"
+	},
+	{
+		"date": "6-june",
+		"sunrise": "04:49",
+		"sunset": "21:19"
+	},
+	{
+		"date": "7-june",
+		"sunrise": "04:49",
+		"sunset": "21:20"
+	},
+	{
+		"date": "8-june",
+		"sunrise": "04:48",
+		"sunset": "21:20"
+	},
+	{
+		"date": "9-june",
+		"sunrise": "04:48",
+		"sunset": "21:21"
+	},
+	{
+		"date": "10-june"
+			"sunrise": "04:47"
+			,"sunset": "21:22"
+	},
+	{
+		"date": "11-june"
+			"sunrise": "04:47"
+			,"sunset": "21:23"
+	},
+	{
+		"date": "12-june"
+			"sunrise": "04:47"
+			,"sunset": "21:23"
+	},
+	{
+		"date": "13-june"
+			"sunrise": "04:46"
+			,"sunset": "21:24"
+	},
+	{
+		"date": "14-june"
+			"sunrise": "04:46"
+			,"sunset": "21:25"
+	},
+	{
+		"date": "15-june"
+			"sunrise": "04:46"
+			,"sunset": "21:25"
+	},
+	{
+		"date": "16-june"
+			"sunrise": "04:46"
+			,"sunset": "21:26"
+	},
+	{
+		"date": "17-june"
+			"sunrise": "04:46"
+			,"sunset": "21:26"
+	},
+	{
+		"date": "18-june"
+			"sunrise": "04:46"
+			,"sunset": "21:26"
+	},
+	{
+		"date": "19-june"
+			"sunrise": "04:46"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "20-june"
+			"sunrise": "04:46"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "21-june"
+			"sunrise": "04:46"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "22-june"
+			"sunrise": "04:46"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "23-june"
+			"sunrise": "04:47"
+			,"sunset": "21:28"
+	},
+	{
+		"date": "24-june"
+			"sunrise": "04:47"
+			,"sunset": "21:28"
+	},
+	{
+		"date": "25-june"
+			"sunrise": "04:47"
+			,"sunset": "21:28"
+	},
+	{
+		"date": "26-june"
+			"sunrise": "04:48"
+			,"sunset": "21:28"
+	},
+	{
+		"date": "27-june"
+			"sunrise": "04:48"
+			,"sunset": "21:28"
+	},
+	{
+		"date": "28-june"
+			"sunrise": "04:49"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "29-june"
+			"sunrise": "04:49"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "30-june"
+			"sunrise": "04:50"
+			,"sunset": "21:27"
+	},
+	{
+		"date": "july-1",
+		"sunrise": "04:51",
+		"sunset": "21:27"
+	},
+	{
+		"date": "july-2",
+		"sunrise": "04:51",
+		"sunset": "21:26"
+	},
+	{
+		"date": "july-3",
+		"sunrise": "04:52",
+		"sunset": "21:26"
+	},
+	{
+		"date": "july-4",
+		"sunrise": "04:53",
+		"sunset": "21:26"
+	},
+	{
+		"date": "july-5",
+		"sunrise": "04:54",
+		"sunset": "21:25"
+	},
+	{
+		"date": "july-6",
+		"sunrise": "04:54",
+		"sunset": "21:25"
+	},
+	{
+		"date": "july-7",
+		"sunrise": "04:55",
+		"sunset": "21:24"
+	},
+	{
+		"date": "july-8",
+		"sunrise": "04:56",
+		"sunset": "21:23"
+	},
+	{
+		"date": "july-9",
+		"sunrise": "04:57",
+		"sunset": "21:23"
+	},
+	{
+		"date": "july-10",
+		"sunrise": "04:58",
+		"sunset": "21:22"
+	},
+	{
+		"date": "july-11",
+		"sunrise": "04:59",
+		"sunset": "21:21"
+	},
+	{
+		"date": "july-12",
+		"sunrise": "05:00",
+		"sunset": "21:20"
+	},
+	{
+		"date": "july-13",
+		"sunrise": "05:01",
+		"sunset": "21:19"
+	},
+	{
+		"date": "july-14",
+		"sunrise": "05:03",
+		"sunset": "21:18"
+	},
+	{
+		"date": "july-15",
+		"sunrise": "05:04",
+		"sunset": "21:17"
+	},
+	{
+		"date": "july-16",
+		"sunrise": "05:05",
+		"sunset": "21:16"
+	},
+	{
+		"date": "july-17",
+		"sunrise": "05:06",
+		"sunset": "21:15"
+	},
+	{
+		"date": "july-18",
+		"sunrise": "05:07",
+		"sunset": "21:14"
+	},
+	{
+		"date": "july-19",
+		"sunrise": "05:09",
+		"sunset": "21:13"
+	},
+	{
+		"date": "july-20",
+		"sunrise": "05:10",
+		"sunset": "21:12"
+	},
+	{
+		"date": "july-21",
+		"sunrise": "05:11",
+		"sunset": "21:11"
+	},
+	{
+		"date": "july-22",
+		"sunrise": "05:13",
+		"sunset": "21:09"
+	},
+	{
+		"date": "july-23",
+		"sunrise": "05:14",
+		"sunset": "21:08"
+	},
+	{
+		"date": "july-24",
+		"sunrise": "05:15",
+		"sunset": "21:07"
+	},
+	{
+		"date": "july-25",
+		"sunrise": "05:17",
+		"sunset": "21:05"
+	},
+	{
+		"date": "july-26",
+		"sunrise": "05:18",
+		"sunset": "21:04"
+	},
+	{
+		"date": "july-27",
+		"sunrise": "05:20",
+		"sunset": "21:02"
+	},
+	{
+		"date": "july-28",
+		"sunrise": "05:21",
+		"sunset": "21:01"
+	},
+	{
+		"date": "july-29",
+		"sunrise": "05:23",
+		"sunset": "20:59"
+	},
+	{
+		"date": "july-30",
+		"sunrise": "05:24",
+		"sunset": "20:58"
+	},
+	{
+		"date": "july-31",
+		"sunrise": "05:26",
+		"sunset": "20:56"
+	},
+
+]
