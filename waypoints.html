@@ -1,0 +1,146 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery Waypoints</title>
+	<meta name="viewport" content="width=device-width">
+	<script src="js/vendor/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="build/css/style.css">
+	<style>
+		.box {
+			min-height: 100vh;
+			background: red;
+			width: 100%;
+		}
+
+		.box:nth-child(odd) {
+			background-color: orange;
+		}
+
+		body {
+			margin: 0;
+			width: 100%;
+		}
+
+		nav {
+			position: fixed;
+			top: 0;
+			left: 25%;
+
+			background: white;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.active {
+			color: white;
+			background: black;
+		}
+
+		.notifications {
+		  position: fixed;
+		  right: 0;
+		  top: 76px;
+		  z-index: 2;
+		  padding: 0;
+		  margin: 0; }
+		  .notifications li {
+		    background: #68a42b;
+		    color: white;
+		    max-width: 320px;
+		    display: block;
+		    position: relative;
+		    padding: 6px 10px;
+		    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.5);
+		    border-top: 1px solid rgba(255, 255, 255, 0.3); }
+		    .notifications li:first-child {
+		      border-top: 0; }
+
+
+	</style>
+</head>
+<body>
+
+<nav>
+	<a href="#fish-1">fish-1</a>
+	<a href="#fish-2">fish-2</a>
+	<a href="#fish-3">fish-3</a>
+	<a href="#fish-4">fish-4</a>
+	<a href="#fish-5">fish-5</a>
+	<a href="#fish-6">fish-6</a>
+	<a href="#fish-7">fish-7</a>
+	<a href="#fish-8">fish-8</a>
+	<a href="#fish-9">fish-9</a>
+	<a href="#fish-10">fish-10</a>
+</nav>
+
+		<div class="box" id="fish-1"></div>
+		<div class="box" id="fish-2"></div>
+		<div class="box" id="fish-3"></div>
+		<div class="box" id="fish-4"></div>
+		<div class="box" id="fish-5"></div>
+		<div class="box" id="fish-6"></div>
+		<div class="box" id="fish-7"></div>
+		<div class="box" id="fish-8"></div>
+		<div class="box" id="fish-9"></div>
+		<div class="box" id="fish-10"></div>
+
+	<ul class="notifications"></ul>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-waypoints/lib/jquery.waypoints.min.js"></script>
+
+	<script>
+		var boxes = $('.box'),
+			boxesLength = boxes.length,
+			i = boxesLength,
+			$notifications = $('.notifications'),
+			windowHash = window.location.hash.substr(1);
+
+		function notify(text) {
+			var $notification = $('<li />').text(text).css({
+				left: 320
+			})
+			$notifications.append($notification)
+			$notification.animate({
+				left: 0
+			}, 300, function() {
+				$(this).delay(3000).animate({
+					left: 320
+				}, 200, function() {
+					$(this).slideUp(100, function() {
+						$(this).remove()
+					})
+				})
+			})
+		}
+
+		while (i--) {
+			new Waypoint({
+				element: boxes[i],
+				// offset: function() {
+				//     return -this.element.clientHeight
+			 //  	},
+				handler: function(direction){
+					notify('group: ' + this.element.id);
+
+					$('a[href="#' + this.element.id + '"]')
+						.addClass('active')
+						.siblings('a').removeClass('active');
+				},
+			});
+		}
+
+		if (windowHash !== '') {
+			$('a[href="#' + windowHash + '"]')
+				.addClass('active')
+				.siblings('a').removeClass('active');
+		}
+
+	</script>
+</body>
+</html>
