@@ -1,27 +1,15 @@
 @import "../bower_components/normalize-scss/normalize";
 // @import "../bower_components/foundation/scss/foundation";
 
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
 
-body {
-    margin: 20% auto;
-    width: 75%;
-}
-
-h1 {
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: bold;
-	border: 5px solid orange;
-	padding: 1em;
-	margin-bottom: 30px;
-	background: orange;
-}
-
+@import "variables";
+@import "mixins";
+@import "page";
 @import "main";
 @import "table";
+@import "form";
+
+@media screen and (min-width: 600px) {
+	@import "media-queries/600";
+}
+

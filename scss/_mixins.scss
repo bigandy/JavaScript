@@ -1,0 +1,81 @@
+$placeholder-list: "::-webkit-input-placeholder", "::-moz-placeholder", ":-ms-input-placeholder";
+
+@mixin placeholder($color: "inherit") {
+	@each $placeholder in $placeholder-list {
+		#{$placeholder} {
+			@content;
+		}
+	}
+}
+
+// Mixin for Generating relative font-sizes:
+@mixin fs($font-size, $base: 16) {
+	font-size: $font-size / $base * 1em;
+}
+
+// Useage :
+// If you want element to be 13px and parent is 16px :
+// +fs(13)
+// If you want element to be 22px and parent is 32px :
+// +fs(22,32)
+
+// Mixin for line-height:
+@mixin line($line-height, $base) {
+	line-height: $line-height / $base * 1;
+}
+
+@function rows($rows) {
+	@return $rows * 18px;
+}
+
+@mixin hocus {
+	&:focus,
+	&:hover {
+		@content;
+	}
+}
+
+@function grayscale($value) {
+	@return #{ "grayscale(" + $value + ")" };
+}
+
+%ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+}
+
+%cf {
+	&:after {
+		clear: both;
+	}
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+}
+
+.cb {
+	clear: both;
+}
+
+%vh,
+%visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}

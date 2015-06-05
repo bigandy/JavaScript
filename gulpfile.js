@@ -34,16 +34,16 @@ gulp.task('lint', function() {
 
 // sass
 gulp.task('sass', function () {
-    gulp.src('scss/*.scss')
+	gulp.src('scss/*.scss')
 		.pipe(sass({
 			errLogToConsole: true,
 			outputStyle: 'compressed',
 			sourceComments: 'map'
 			// sourceComments: 'normal'
 		}))
-        // .pipe(autoprefix('last 5 versions'))
-        // .pipe(minifyCSS())
-        .pipe(gulp.dest('build/css'));
+		// .pipe(autoprefix('last 5 versions'))
+		// .pipe(minifyCSS())
+		.pipe(gulp.dest('build/css'));
 });
 
 gulp.task('livereload', function () {
@@ -56,11 +56,11 @@ gulp.task('livereload', function () {
 
 // Rerun the task when a file changes
 gulp.task('watch', function () {
-	gulp.watch('js/*', ['js']);
-	gulp.watch('scss/*', ['sass']);
+	gulp.watch('js/**/*.js', ['js']);
+	gulp.watch('scss/**/*.scss', ['sass']);
 
 	var server = livereload();
-	gulp.watch(['style.css', 'build/**', '*.html']).on('change', function(file) {
+	gulp.watch(['style.css', 'build/**', '**/*.html']).on('change', function(file) {
 		server.changed(file.path);
 	});
 });

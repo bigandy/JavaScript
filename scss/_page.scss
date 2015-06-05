@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+}
+
+h1 {
+	color: $white;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	border: 5px solid $orange;
+	padding: 1em;
+	margin-bottom: 30px;
+	background: $orange;
+}
+
+.list--plain,
+.list--inline,
+.gform_fields {
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		list-style-type: none;
+	}
+}
+
+.list--inline {
+	@extend %cf;
+
+	li {
+		float: left;
+		padding-right: 5px;
+	}
+}
+
+.list--back {
+	position: relative;
+	padding-left: 1.25em;
+
+	&:before {
+		content: "\21d0";
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.list--nav {
+	li {
+		padding-top: .5em;
+		padding-bottom: .5em;
+	}
+}

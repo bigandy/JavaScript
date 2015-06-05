@@ -1,31 +1,50 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>JavaScript: The Definitive Guide</title>
-		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="/build/css/style.css">
-	</head>
-	<body>
+<html ng-app="convertor">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular :: KM Convertor</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../build/css/style.css">
+	<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
 
-		<div class="container">
-			<div class="header">
-				<h3 class="text-muted">JavaScript: The Definitive Guide</h3>
-			</div>
+	<div class="container">
+		<ul class="list--inline list--back"><li><a href="index.html">Angular Index</a></li></ul>
+		<h1>Convertors</h1>
 
-			<main>
-				<h1>Km to Miles Convertor</h1>
-			</main>
+		<div class="convertor" >
+			<form action="">
+				<fieldset ng-controller="KmToMilesController as convertor">
+					<legend>KM to Miles Convertor</legend>
+					<label for="enterKms">KM</label>
+					<div class="input-wrapper">
+						<input id="enterKms" type="number" ng-model="convertorKm" value="100" />
+						<a href="" data-ng-click="inputClear()" class="input-clear"><span>Clear</span></a>
+					</div>
+					<output>
+						{{ (miles | number: 2) + " miles" }}
+					</output>
+				</fieldset>
 
+				<fieldset ng-controller="MilestoKmController as convertor">
+					<legend>Miles to KM Convertor</legend>
+					<label for="enterMiles">Miles</label>
 
+					<div class="input-wrapper">
+						<input id="enterMiles" type="number" ng-model="convertorMiles" value="100" />
+						<a href="" data-ng-click="inputClear()" class="input-clear"><span>Clear</span></a>
+					</div>
+					<output>
+						{{ (kilometers | number :2 ) + " kilometers" }}
+					</output>
+				</fieldset>
 
+			</form>
 		</div>
-
-		<script src="/bower_components/jquery/dist/jquery.js"></script>
-		<script src="/js/main.js"></script>
+	</div>
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../js/angular/convertor.js"></script>
 </body>
 </html>
