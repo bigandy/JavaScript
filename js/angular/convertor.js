@@ -14,7 +14,7 @@
 		this.rate = rates;
 
 		// set the default to 100 for both
-		$scope.convertorKm = this.rate.defaultKm;
+		// $scope.convertorKm = this.rate.defaultKm;
 
 
 		$scope.$watch('convertorKm', function(km) {
@@ -31,7 +31,7 @@
 		this.rate = rates;
 
 		// set the default to 100
-		$scope.convertorMiles = this.rate.defaultMiles;
+		// $scope.convertorMiles = this.rate.defaultMiles;
 
 		$scope.$watch('convertorMiles', function(miles) {
 			$scope.kilometers = miles * rates.milesKm;
