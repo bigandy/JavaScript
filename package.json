@@ -12,6 +12,7 @@
     "gulp-sass": "~0.7.0",
     "gulp-uglify": "~0.2.1",
     "gulp-util": "~2.2.14",
+    "johnny-five": "^0.9.7",
     "optimist": "^0.6.1",
     "underscore": "^1.7.0"
   },
@@ -20,7 +21,6 @@
     "gulp-livereload": "~1.1.1",
     "gulp-minify-css": "~0.3.0",
     "gulp-strip-debug": "~0.1.1",
-    "johnny-five": "^0.8.37",
     "jshint-stylish": "~0.1.5",
     "node-twitter": "^0.5.2",
     "node-twitter-api": "^1.5.0",
