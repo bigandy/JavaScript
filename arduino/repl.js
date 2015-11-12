@@ -4,7 +4,7 @@ var five = require ('johnny-five'),
 
 board.on("ready", function () {
 	this.repl.inject({
-		led: new five.Led(12)
+		led: new five.Led(0)
 	});
 });
 
