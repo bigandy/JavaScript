@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+	<title>Socket.IO chat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="./css/style.css"> -->
+  </head>
+  <body>
+	<ul id="messages"></ul>
+	<form action="">
+	  <button id="on">On</button>
+	  <button id="off">Off</button>
+	</form>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+	  var socket = io();
+
+	  $('#on').on('click', function(){
+		socket.emit('lights on');
+
+		return false;
+	  });
+
+	  $('#off').on('click', function(){
+		socket.emit('lights off');
+
+		return false;
+	  });
+
+	  socket.on('bg change', function(msg) {
+		console.log(msg);
+
+		if (msg === 'on') {
+			$('body').css('background-color', 'yellow');
+		} else {
+			$('body').css('background-color', 'black');
+		}
+	  });
+	</script>
+  </body>
+</html>
