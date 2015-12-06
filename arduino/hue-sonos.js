@@ -28,13 +28,7 @@ board.on('ready', function() {
 		if (i > 0){
 			playPause();
 
-			if (i % 2 == 0) {
-				console.log('Turn Light 1 On');
-				lightOn(1);
-			} else {
-				console.log('Turn Light 1 Off');
-				lightOff(1);
-			}
+			toggleLight(1);
 		}
 
 		i++;
@@ -46,12 +40,7 @@ board.on('ready', function() {
 
 		if (j > 0){
 			playPause();
-
-			if (j % 2 == 0) {
-				lightOn(2);
-			} else {
-				lightOff(2);
-			}
+			toggleLight(2);
 		}
 
 		j++;
@@ -62,11 +51,9 @@ board.on('ready', function() {
 
 		if (k > 0){
 			playPause();
-			console.log('play/pause the music');
 
 			toggleLight(1);
 			toggleLight(2);
-			console.log('on/off the lights');
 		}
 
 		k++;
@@ -108,7 +95,7 @@ var host = config.ip,
 	username = config.username,
 	api = new HueApi(host, username),
 	lightId = 1,
-	state = lightState.create().on().brightness(100);
+	state = lightState.create().on().brightness(75);
 
 function lightsValue(brightness) {
 	if (brightness === '0') { // if brightness is zero turn off.
