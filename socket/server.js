@@ -1,5 +1,9 @@
 var redis = require('redis');
-var client = redis.createClient();
+var client = redis.createClient({
+	host: '127.0.0.1',
+	port: 6379,
+	auth_pass: '0997c20dc7087b43fad9f5dfad3e035ff2236303b372b0d8aa83c63e2256f'
+});
 var socket_redis = require('socket.io-redis');
 var express = require('express');
 var app = express();
@@ -13,6 +17,10 @@ app.get('/', function(req, res){
 app.use(express.static('public'));
 
 // io.adapter(socket-redis({ host: 'localhost', port: 6379 }));
+
+client.on('error', function (err) {
+	console.log('Error ' + err);
+});
 
 client.on('connect', function() {
 	console.log('connected to redis');
