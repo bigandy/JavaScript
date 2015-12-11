@@ -1,8 +1,9 @@
+var config = require('./config.json');
 var redis = require('redis');
 var client = redis.createClient({
-	host: '127.0.0.1',
-	port: 6379,
-	auth_pass: '0997c20dc7087b43fad9f5dfad3e035ff2236303b372b0d8aa83c63e2256f'
+	host: config.host,
+	port: config.port,
+	auth_pass: config.auth_pass
 });
 var socket_redis = require('socket.io-redis');
 var express = require('express');
