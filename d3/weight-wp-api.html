@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Weight Loss Chart with D3 and WordPress API</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+	html {
+	  box-sizing: border-box;
+	}
+	*, *:before, *:after {
+	  box-sizing: inherit;
+	}
+
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background-color: lightgray;
+	}
+
+	.container {
+		height: 95vh;
+		width: 95vw;
+		padding: .5em;
+		background-color: orange;
+		display: flex;
+	}
+
+	svg {
+		background-color: #fff;
+	}
+
+	.bar {
+		margin-right: 2px;
+		fill: rgba(255, 0, 0, 0.25);
+		position: relative;
+	}
+
+	.bar-text {
+		fill: white;
+		font: 10px sans-serif;
+		text-anchor: middle;
+	}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+	<script src="../bower_components/d3/d3.min.js"></script>
+	<script>
+		var url = 'https://big-andy.co.uk/wp-json/bigandy/v1/health/';
+
+		var ajax = new XMLHttpRequest();
+		ajax.open("GET", url, true);
+		ajax.send();
+		ajax.onload = function(e) {
+			var response = JSON.parse(ajax.responseText),
+				weights = [],
+				dates = [];
+
+			response.forEach(function(i) {
+				weights.push(i.weight);
+				dates.push(i.date);
+			});
+
+		var w = 1000,
+			h = 300,
+			weightsLength = weights.length;
+
+		var yScale = d3.scale.linear()
+			.domain([0, d3.max(weights)])
+			.range([0, h]);
+
+		var xScale = d3.scale.ordinal()
+			.domain(weights)
+			.rangeBands([0, w], 0.01, 0);
+
+		console.log(weightsLength);
+
+		var svg = d3.select('.container').append('svg')
+			.attr('width', w)
+			.attr('height', h);
+
+		bar = svg.selectAll('g')
+			.data(weights)
+		    .enter()
+		    .append('g');
+
+		bar.append('rect')
+			.attr('class', 'bar')
+			.attr('x', function (d) {
+			  return xScale(d);
+			})
+			.attr('y', function (d) {
+			  return h - yScale(d);
+			})
+			.attr('width', xScale.rangeBand())
+			.attr('height', function (d) {
+			  return yScale(d);
+			});
+
+		bar.append('text')
+			.text(function(d) {
+				return d;
+			})
+			.attr('class', 'bar-text')
+			.attr('x', function (d) {
+				return xScale(d) + 20;
+			})
+			.attr('y', function (d) {
+		      	return h - yScale(d) + 10;
+			})
+		}
+	</script>
+</body>
+</html>
