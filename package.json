@@ -31,6 +31,7 @@
     "node-static": "0.7.x",
     "node-twitter": "^0.5.2",
     "node-twitter-api": "^1.5.0",
+    "oauth": "^0.9.14",
     "openweather-node": "0.0.4",
     "request-promise": "^1.0.2",
     "require-fu": "1.0.x",
