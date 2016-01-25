@@ -3,55 +3,75 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sunrise / Sunset</title>
+	<style>
+		body {
+			padding: 50px;
+			background-color: lightgray;
+		}
+
+		svg {
+			background-color: #fff;
+		}
+	</style>
 </head>
 <body>
 
 	<script src="../bower_components/moment/min/moment.min.js"></script>
 	<script src="../bower_components/moment-range/dist/moment-range.min.js"></script>
 	<script src="../bower_components/suncalc/suncalc.js"></script>
+
+	<script src="../bower_components/d3/d3.min.js"></script>
 	<script>
 		// var SunCalc = require('suncalc');
 		var latitude = '51.6235742';
 		var longitude = '-1.3007625999999999';
-
-
-		// year, month, day
 		var today = new Date(),
 			year = today.getFullYear();
-		// 	month = today.getMonth() + 1,
-		// 	day = today.getDate();
-
-		// console.log(year, month, day);
 
 		var start = new Date(year, 0, (1 + 1)),
 			end   = new Date(year, 11, (31 + 1)),
 			range = moment.range(start, end),
-			acc = [],
-			riseSet = {};
+			dataset = [],
+			riseSet = {},
+			times;
 
-		range.by('days', function(moment) {
-			var times = SunCalc.getTimes(new Date(moment._d), latitude, longitude);
+		range.by('days', function(period) {
+			times = SunCalc.getTimes(new Date(period._d), latitude, longitude);
+
+
+			var sunrise = moment(times.sunrise);
+			var sunset = moment(times.sunset);
+
+			// console.log(moment(times.sunrise));
 
 			riseSet = {
 				'sunrise': times.sunrise,
-				'sunset': times.sunset
+				'sunset': times.sunset,
+				'minutes_of_daylight': sunset.diff(sunrise, 'minutes')
 			};
 
-			acc.push(riseSet);
+			dataset.push(riseSet);
 		});
 
-		// console.log(acc);
+		var margin = {
+				top: 20,
+				right: 10,
+				bottom: 75,
+				left: 50
+			},
+		w = 750 - margin.left - margin.right,
+		h = 500 - margin.top - margin.bottom,
+		svg = d3.select('body').append('svg')
+			.attr('width', w + margin.left + margin.right)
+			.attr('height', h + margin.top + margin.bottom)
+			.append('g')
+				.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-		acc.forEach(function(item){
-			console.log('Sunrise: ', item.sunrise, 'Sunset:', item.sunset);
-			// console.log(acc[i].sunset);
-		});
 
-		// console.log(range);
 
-		// console.log(times);
-		// console.log('sunrise: ', times.sunrise, 'sunset: ', times.sunset);
 
+
+		console.log(dataset);
 	</script>
 </body>
 </html>
