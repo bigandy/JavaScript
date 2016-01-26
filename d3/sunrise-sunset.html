@@ -22,7 +22,6 @@
 
 	<script src="../bower_components/d3/d3.min.js"></script>
 	<script>
-		// var SunCalc = require('suncalc');
 		var latitude = '51.6235742';
 		var longitude = '-1.3007625999999999';
 		var today = new Date(),
@@ -35,46 +34,120 @@
 			riseSet = {},
 			times;
 
-		// console.log(localStorage.getItem('dataset'));
+		range.by('days', function(period) {
+			times = SunCalc.getTimes(new Date(period._d), latitude, longitude);
+
+			var sunrise = moment(times.sunrise);
+			var sunset = moment(times.sunset);
+
+			riseSet = {
+				'sunrise': times.sunrise,
+				'sunset': times.sunset,
+				'minutes_of_daylight': sunset.diff(sunrise, 'minutes')
+			};
+
+			dataset.push(riseSet);
+		});
+
+		// var testdata = [
+		// 	{
+		// 		minutes_of_daylight: 473,
+		// 		sunrise: "Fri Jan 01 2016 08:12:44 GMT+0000 (GMT)",
+		// 		sunset: "Fri Jan 01 2016 16:06:30 GMT+0000 (GMT)",
+		// 	},
+		// 	{
+		// 		minutes_of_daylight: 996,
+		// 		sunrise: "Mon Jun 13 2016 04:48:22 GMT+0100 (BST)",
+		// 		sunset: "Mon Jun 13 2016 21:25:02 GMT+0100 (BST)"
+		// 	},
+		// 	{
+		// 		minutes_of_daylight: 634,
+		// 		sunrise: "Mon Oct 17 2016 07:34:23 GMT+0100 (BST)",
+		// 		sunset: "Mon Oct 17 2016 18:08:51 GMT+0100 (BST"
+		// 	}
+		// ];
 
 
-		if ( localStorage.getItem('dataset') === null ) {
-			range.by('days', function(period) {
-				times = SunCalc.getTimes(new Date(period._d), latitude, longitude);
-
-				var sunrise = moment(times.sunrise);
-				var sunset = moment(times.sunset);
-
-				riseSet = {
-					'sunrise': times.sunrise,
-					'sunset': times.sunset,
-					'minutes_of_daylight': sunset.diff(sunrise, 'minutes')
-				};
-
-				dataset.push(riseSet);
+		var parseDate = d3.time.format('%d.%m.%Y'),
+			dates = dataset.map(function(d) {
+				// console.log(d);
+				return parseDate(d.sunrise);
 			});
 
-			localStorage.setItem('dataset', JSON.stringify(dataset));
-		} else {
-
-			dataset = JSON.parse(localStorage.getItem('dataset'));
-		}
-
-		console.log(dataset);
+		// console.log(dates);
 
 		var margin = {
 				top: 20,
 				right: 10,
-				bottom: 75,
+				bottom: 100,
 				left: 50
 			},
-		w = 750 - margin.left - margin.right,
-		h = 500 - margin.top - margin.bottom,
-		svg = d3.select('body').append('svg')
-			.attr('width', w + margin.left + margin.right)
-			.attr('height', h + margin.top + margin.bottom)
-			.append('g')
-				.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+			w = 750 - margin.left - margin.right,
+			h = 500 - margin.top - margin.bottom,
+			svg = d3.select('body').append('svg')
+				.attr('width', w + margin.left + margin.right)
+				.attr('height', h + margin.top + margin.bottom)
+				.append('g')
+					.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')'),
+			parseDate = d3.time.format('%d.%m.%Y');
+
+		console.log(dataset[0].sunrise);
+
+		// define the x axis
+        var xScale = d3.time.scale()
+	        .domain([dataset[0].sunrise, dataset[dataset.length - 1].sunrise])
+			.range([0, w]);
+
+        var xAxis = d3.svg.axis()
+            .orient("bottom")
+            .scale(xScale)
+            .ticks(12);
+
+        // draw x axis with labels and move to the bottom of the chart area
+        svg.append('g')
+            .attr('class', 'xaxis')
+            .attr('transform', 'translate(0,' + h + ')')
+            .call(xAxis)
+            .selectAll('text')
+    			.attr('y', 0)
+    			.attr('x', 9)
+    			.attr('dy', '.35em')
+    			.attr('transform', 'rotate(90)')
+    			.style('text-anchor', 'start');
+
+		// y-Axis
+		var yScale = d3.scale.linear()
+				.domain([0, 1000])
+				.range([h, 0]),
+			yAxis = d3.svg.axis()
+				.scale(yScale)
+				.orient('left');
+
+		svg.append('g')
+			.attr('class', 'axis')
+			.attr('transform', 'translate(0, 0)')
+			.call(yAxis);
+
+		svg.selectAll('rect')
+			.data(dataset)
+			.enter()
+			.append('rect')
+			.attr('class', 'bar')
+			.attr('x', function(d) {
+				// console.log(parseDate(d.sunrise));
+				// return xScale(parseDate(d.sunrise));
+			})
+			// .attr('width', xScale.rangeBand())
+			.attr('y', function (d) {
+			  return yScale(d.minutes_of_daylight);
+			})
+			.attr('height', function(d) {
+				return h - yScale(d.minutes_of_daylight);
+			})
+			.attr('fill', 'orange')
+			// .attr('fill', function(d) {
+			// 	return colourScale(d.minutes_of_daylight);
+			// });
 
 	</script>
 </body>
