@@ -35,23 +35,32 @@
 			riseSet = {},
 			times;
 
-		range.by('days', function(period) {
-			times = SunCalc.getTimes(new Date(period._d), latitude, longitude);
+		// console.log(localStorage.getItem('dataset'));
 
 
-			var sunrise = moment(times.sunrise);
-			var sunset = moment(times.sunset);
+		if ( localStorage.getItem('dataset') === null ) {
+			range.by('days', function(period) {
+				times = SunCalc.getTimes(new Date(period._d), latitude, longitude);
 
-			// console.log(moment(times.sunrise));
+				var sunrise = moment(times.sunrise);
+				var sunset = moment(times.sunset);
 
-			riseSet = {
-				'sunrise': times.sunrise,
-				'sunset': times.sunset,
-				'minutes_of_daylight': sunset.diff(sunrise, 'minutes')
-			};
+				riseSet = {
+					'sunrise': times.sunrise,
+					'sunset': times.sunset,
+					'minutes_of_daylight': sunset.diff(sunrise, 'minutes')
+				};
 
-			dataset.push(riseSet);
-		});
+				dataset.push(riseSet);
+			});
+
+			localStorage.setItem('dataset', JSON.stringify(dataset));
+		} else {
+
+			dataset = JSON.parse(localStorage.getItem('dataset'));
+		}
+
+		console.log(dataset);
 
 		var margin = {
 				top: 20,
@@ -67,11 +76,6 @@
 			.append('g')
 				.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-
-
-
-
-		console.log(dataset);
 	</script>
 </body>
 </html>
