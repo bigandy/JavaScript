@@ -6,27 +6,52 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <ul id="messages"></ul>
     <form action="">
-      <button id="play">Play</button>
-      <button id="pause">Pause</button>
+
+		<fieldset>
+			<legend>Bedroom</legend>
+			<label for="playBedroom">play</label>
+			<input id="playBedroom" name="bedroom" type="radio" value="play">
+
+			<label for="pauseBedroom">pause</label>
+			<input id="pauseBedroom" name="bedroom" type="radio" value="pause">
+
+            <input type="range" min="0" max="100" id="bedroomVolume" name="bedroom">
+		</fieldset>
+
+        <fieldset>
+			<legend>Lounge</legend>
+			<label for="playLounge">play</label>
+			<input id="playLounge" name="lounge" type="radio" value="play">
+
+			<label for="pauseLounge">pause</label>
+			<input id="pauseLounge" name="lounge" type="radio" value="pause">
+
+            <input type="range" min="0" max="100" id="loungeVolume" name="lounge">
+		</fieldset>
+
+        <fieldset>
+			<legend>Kitchen</legend>
+			<label for="playKitchen">play</label>
+			<input id="playKitchen" name="kitchen" type="radio" value="play">
+
+			<label for="pauseKitchen">pause</label>
+			<input id="pauseKitchen" name="kitchen" type="radio" value="pause">
+
+            <input type="range" min="0" max="100" id="kitchenVolume" name="kitchen">
+		</fieldset>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
+
+
+	<a href="#" id="favs">Get Favorites</a>
+
+
+
+
+
+
+	<script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      var socket = io();
-
-      $('#play').on('click', function(){
-        socket.emit('music play');
-
-        return false;
-      });
-
-      $('#pause').on('click', function(){
-        socket.emit('music pause');
-
-        return false;
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>

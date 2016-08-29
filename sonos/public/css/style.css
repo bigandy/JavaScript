@@ -17,7 +17,6 @@ button {
 	background: orange;
 	color: white;
 	border: 0;
-
 	border-radius: 1em;
 	margin-bottom: 1em;
 	display: inline-block;
@@ -26,6 +25,28 @@ button {
 	float: left;
 }
 
+fieldset {
+	margin-bottom: 1em;
+	padding: 1em;
+}
+
+caption {
+	display: block;
+}
+
 button:hover {
 	background: red;
+}
+
+button:focus {
+	outline: none;
+}
+
+[type="range"] {
+	width: 100%;
+	display: block;
+}
+
+.selected {
+	color: green;
 }
