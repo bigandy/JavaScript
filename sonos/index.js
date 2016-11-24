@@ -3,9 +3,14 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var SonosDiscovery = require('sonos-discovery');
-var socketIO = require('socket.io');
 
-const room = 'Bedroom';
+const rooms = [
+	'Bedroom',
+	'Kitchen',
+	'Lounge',
+];
+
+const room = rooms[0];
 
 app.get('/', function(req, res){
 	res.sendFile('index.html' , { root : __dirname + '/public'});
@@ -14,10 +19,6 @@ app.get('/', function(req, res){
 app.use(express.static('public'));
 
 io.on('connection', function(socket){
-	// socket.on('update room', () => {
-	// 	console.log('thing happened');
-	// });
-
 	socket.on('update room', (msg) => {
 		if (msg.action === 'play') {
 			play(msg.room);
@@ -30,12 +31,15 @@ io.on('connection', function(socket){
 
 	socket.on('update room volume', (msg) => {
 		changeVolume(msg.room, msg.volume);
+		console.log(getVolume(room));
 	})
 
 	socket.on('get favorites', () => {
 		// console.log('get the favorites');
 		replaceWithFavorite('BBC Radio 6 Music');
-	})
+	});
+
+	showDefaults();
 });
 
 http.listen(3000, function(){
@@ -70,9 +74,14 @@ const play = (room = 'Lounge') => {
 
 const changeVolume = (room = 'Lounge', volume) => {
 	var player = discovery.getPlayer(decodeURIComponent(room));
+	console.log(player.state.volume);
 	return player.setVolume(volume);
 }
 
+const getVolume = (room = 'Lounge') => {
+	var player = discovery.getPlayer(decodeURIComponent(room));
+	return player.state.volume;
+}
 
 function isRadio(uri) {
   return uri.startsWith('x-sonosapi-stream:') ||
@@ -81,6 +90,28 @@ function isRadio(uri) {
     uri.startsWith('x-sonosapi-hls:') ||
     uri.startsWith('x-sonosprog-http:');
 }
+
+function showDefaults() {
+  var player = discovery.getPlayer(decodeURIComponent(room));
+  return player.system.getFavorites()
+    .then((favorites) => {
+		const favoriteList = favorites.map(x => x.title);
+		console.log(player.state);
+
+		console.log(rooms.map((room, i) => {
+			console.log(rooms[0]);
+			// return { ${rooms[i]}: getVolume(room) };
+		}));
+
+		io.sockets.emit('defaults', {
+			favoriteList,
+			volume: rooms.map((room) => {
+				return getVolume(room);
+			}),
+		})
+	});
+};
+
 
 function replaceWithFavorite(favoriteName) {
   // console.log(`replacing with favorite ${favoriteName}`);
@@ -91,7 +122,7 @@ function replaceWithFavorite(favoriteName) {
 		console.log(favoriteName);
       	console.log(`found favorites`, favoriteList);
 
-		io.sockets.emit('ace in the hole', {favoriteList, favorite: favoriteName})
+		io.sockets.emit('show Favorites', {favoriteList, favorite: favoriteName})
 	//   console.log('there are ', favorites.length, ' favorites');
 	//   console.log('WOOP!', favorites.find((fav) => fav.title.toLowerCase() === favoriteName.toLowerCase()));
       return favorites.find((fav) => fav.title.toLowerCase() === favoriteName.toLowerCase());
@@ -105,15 +136,7 @@ function replaceWithFavorite(favoriteName) {
         // console.log(`favorite is radiostation`);
         return favorite;
       }
-
-    //   console.log('clearing queue');
-    //   return this.clearQueue()
-    //     .then(() => console.log(`Adding ${favorite.uri} to queue with metadata ${favorite.metadata}`))
-    //     .then(() => player.addURIToQueue(favorite.uri, favorite.metadata))
-    //     .then(() => console.log(`triggering queue mode`))
-    //     .then(() => {
-    //       return { uri: `x-rincon-queue:${this.uuid}#0` };
-    //     });
+			
     })
     .then((favorite) => {
     //   console.log(`setting AVTransport to ${favorite.uri} with metadata ${favorite.metadata}`);

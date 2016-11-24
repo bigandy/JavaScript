@@ -22,7 +22,7 @@ $('#favs').on('click', (e) => {
 	socket.emit('get favorites');
 })
 
-socket.on('ace in the hole', function(msg) {
+socket.on('show favorites', function(msg) {
     console.log('here is my message', msg);
 
     var list = $('<ul></ul>');
@@ -39,3 +39,7 @@ socket.on('ace in the hole', function(msg) {
 
     $('#favs').after(list);
 });
+
+socket.on('defaults', function(msg) {
+    console.log('here is the defaults message', msg);
+})

@@ -1,13 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Sonos Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <form action="">
-
 		<fieldset>
 			<legend>Bedroom</legend>
 			<label for="playBedroom">play</label>
@@ -17,6 +16,17 @@
 			<input id="pauseBedroom" name="bedroom" type="radio" value="pause">
 
             <input type="range" min="0" max="100" id="bedroomVolume" name="bedroom">
+		</fieldset>
+
+        <fieldset>
+			<legend>Kitchen</legend>
+			<label for="playKitchen">play</label>
+			<input id="playKitchen" name="kitchen" type="radio" value="play">
+
+			<label for="pauseKitchen">pause</label>
+			<input id="pauseKitchen" name="kitchen" type="radio" value="pause">
+
+            <input type="range" min="0" max="100" id="kitchenVolume" name="kitchen">
 		</fieldset>
 
         <fieldset>
@@ -30,16 +40,7 @@
             <input type="range" min="0" max="100" id="loungeVolume" name="lounge">
 		</fieldset>
 
-        <fieldset>
-			<legend>Kitchen</legend>
-			<label for="playKitchen">play</label>
-			<input id="playKitchen" name="kitchen" type="radio" value="play">
 
-			<label for="pauseKitchen">pause</label>
-			<input id="pauseKitchen" name="kitchen" type="radio" value="pause">
-
-            <input type="range" min="0" max="100" id="kitchenVolume" name="kitchen">
-		</fieldset>
     </form>
 
 
